@@ -1,0 +1,721 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "bayu",
+      "email": "bayu@gmail.com",
+      "point": 3,
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "username": "andre",
+      "email": "andre@gmail.com",
+      "point": 2,
+      "password": "qwerty"
+    },
+    {
+      "id": 3,
+      "username": "MHHaekal",
+      "email": "haekal@gmail.com",
+      "point": 4,
+      "password": "54321"
+    },
+    {
+      "username": "adudu",
+      "email": "adudu@gmail.com",
+      "point": 4,
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "username": "adidi",
+      "email": "adidi@gmail.com",
+      "password": "12345",
+      "point": 4,
+      "id": 5
+    },
+    {
+      "username": "adudi",
+      "email": "adudi@gmail.com",
+      "point": 4,
+      "password": "12345",
+      "id": 6
+    },
+    {
+      "username": "adidu",
+      "email": "adidu@gmail.com",
+      "password": "12345",
+      "point": 5,
+      "id": 7
+    },
+    {
+      "username": "adiidu",
+      "email": "adiidu@gmail.com",
+      "point": 4,
+      "password": "12345",
+      "id": 8
+    },
+    {
+      "username": "HAEKALLLLL",
+      "email": "haekal@yahoo.com",
+      "password": "123456",
+      "point": 1,
+      "id": 9
+    },
+    {
+      "username": "albob",
+      "email": "albob@gmail.com",
+      "password": "123456",
+      "point": 0,
+      "id": 10
+    }
+  ],
+  "products": [
+    {
+      "productName": "Coldplay : Music of The Spheres Concert",
+      "image": "https://assets.loket.com/imgdir/2023-05-05/48/48f966262aea4deda759e8353bf5cabc2a0ac6a3127393267168104395.jpg",
+      "code": "CHRISMARTIN",
+      "price": 3500000,
+      "details": "Jakarta, 9 May 2023 - Coldplay have announced their hugely-anticipated return to Asia and Australia with a special run of stadium shows in November 2023, as part of their record-breaking Music Of The Spheres World Tour. The announcement marks the band’s first ever show in Jakarta, taking place on 15 November at Gelora Bung Karno Stadium.",
+      "date": "2023-11-15",
+      "time": "20:00",
+      "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 1,
+      "category": 1,
+      "discount": 10,
+      "id": 1
+    },
+    {
+      "productName": "BLACKPINK: Born Pink",
+      "image": "https://cdn06.pramborsfm.com/storage/app/media/Prambors/Editorial%202/BLACKPINK-20220921171557.jpg?tr=w-8009",
+      "code": "LISABP",
+      "price": 2500000,
+      "details": "Get ready to experience a musical extravaganza like no other as BLACKPINK, the global sensation, takes the stage in an electrifying concert that will leave you breathless. Mark your calendars for a night of sensational performances, captivating visuals, and unforgettable moments.",
+      "date": "2023-11-20",
+      "time": "20:00",
+      "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 2,
+      "category": 1,
+      "discount": 15,
+      "id": 2
+    },
+    {
+      "productName": "OpenMic: Raditya Dika",
+      "image": "https://assets.jatimnetwork.com/crop/0x0:0x0/750x500/webp/photo/2022/07/05/600606511.jpg",
+      "code": "RADIT20",
+      "price": 800000,
+      "details": "Prepare yourself for a night of uncontrollable laughter as the comedy maestro Raditya Dika takes the stage for an uproarious stand-up comedy show that will have you rolling in the aisles. Brace yourself for a side-splitting experience that promises to tickle your funny bone and leave you in stitches.",
+      "date": "2023-11-19",
+      "time": "10:00",
+      "location": "ICE BSD, South Tangerang, Indonesia",
+      "locationId": 1,
+      "sellerId": 3,
+      "category": 2,
+      "discount": 20,
+      "id": 3
+    },
+    {
+      "productName": "Liga 1: Persija vs PSM Makasar",
+      "image": "https://asset-2.tstatic.net/toraja/foto/bank/images/Persija-Jakarta-vs-PSM-Makassar-Liga-1.jpg",
+      "code": "BPAMUNGAS",
+      "price": 1500000,
+      "details": "Get ready for a football extravaganza that will have you on the edge of your seat as two powerhouses of Indonesian football clash in an epic battle that's bound to leave fans exhilarated. Witness the intensity, skill, and passion of the game as Persija takes on PSM Makassar in a match that promises to be a thrilling spectacle.",
+      "date": "2023-22-19",
+      "time": "14:00",
+      "location": "Jakarta International Stadium, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 1,
+      "category": 5,
+      "discount": 10,
+      "id": 4
+    },
+    {
+      "productName": "MotoGP Mandalika",
+      "code": "ROSSI46",
+      "image": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/01/02/1515331761.jpg",
+      "price": 4000000,
+      "details": "Rev up your engines and prepare for a heart-pounding race experience like no other as the world's premier motorcycle racing championship, MotoGP, roars into Mandalika, Indonesia. Brace yourself for high-speed action, adrenaline-pumping thrills, and the electrifying atmosphere of the Grand Prix Mandalika.",
+      "date": "2023-11-11",
+      "time": "15:00",
+      "location": "Mandalika Circuit, Lombok, Indonesia",
+      "locationId": 1,
+      "sellerId": 2,
+      "category": 4,
+      "discount": 10,
+      "id": 5
+    },
+    {
+      "productName": "NewJeans Concert",
+      "image": "https://www.nme.com/wp-content/uploads/2023/06/newjeans-get-up-eta.jpg",
+      "code": "NEWJEANSINDONESIA",
+      "price": 2500000,
+      "details": "Prepare to be swept off your feet by the electrifying beats and soulful melodies of NewJeans as they light up the stage in a concert that will leave you craving for more. Get ready to immerse yourself in a musical journey that transcends genres and takes you on a rollercoaster of emotions.",
+      "date": "2023-10-19",
+      "time": "19:00",
+      "location": "ICE BSD, South Tangerang, Indonesia",
+      "locationId": 1,
+      "sellerId": 3,
+      "category": 1,
+      "discount": 5,
+      "id": 6
+    },
+    {
+      "productName": "F1 Singapore GP",
+      "image": "https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2022/5/25/j8tzdfqjfnxciaca06qc/f1-22-red-bull-racing-rb18-sergio-perez",
+      "code": "MAXMAXMAX",
+      "price": 15000000,
+      "details": "Gear up for a high-octane extravaganza as the F1 Singapore Grand Prix returns to illuminate the city with blazing speed, heart-pounding races, and a dazzling display of motorsport prowess. Get ready to witness the world's top drivers and teams compete under the lights in a race that blends athleticism, technology, and sheer excitement.",
+      "date": "2024-1-20",
+      "time": "20:00",
+      "location": "Singapore Int. Circuit, Singapore",
+      "locationId": 3,
+      "sellerId": 1,
+      "category": 4,
+      "discount": 10,
+      "id": 7
+    },
+    {
+      "productName": "NBA Playoff: LA Lakers vs Chicago Bulls",
+      "image": "https://cdn.nba.com/davinci/images/team-matchups/nba/latest/web/lal-chi/1200x628.png",
+      "code": "KOBEMJ",
+      "price": 5000000,
+      "details": "Get ready for a basketball spectacle that will have fans on the edge of their seats as two basketball giants collide in an electrifying NBA match. Brace yourself for a game filled with high-flying dunks, clutch shots, and intense competition as the Los Angeles Lakers take on the Chicago Bulls in a showdown for the ages.",
+      "date": "2023-12-1",
+      "time": "20:00",
+      "location": "Crypto.com Arena, Los Angeles, USA",
+      "locationId": 2,
+      "sellerId": 2,
+      "category": 6,
+      "discount": 40,
+      "id": 8
+    },
+    {
+      "productName": "NBA: LA Lakers vs Boston Celtics",
+      "image": "https://cdn.nba.com/davinci/images/team-matchups/nba/latest/web/bos-lal/1200x628.png",
+      "code": "KOBEEE",
+      "price": 5000000,
+      "details": "Prepare for a basketball clash that transcends time and ignites the passion of fans worldwide as the Los Angeles Lakers go head-to-head with the Boston Celtics in an epic NBA matchup. Get ready to witness history, intensity, and the magic of two legendary franchises colliding on the court.",
+      "date": "2023-12-19",
+      "time": "20:00",
+      "location": "Crypto.com Arena, Los Angeles, USA",
+      "locationId": 2,
+      "sellerId": 3,
+      "category": 6,
+      "discount": 40,
+      "id": 9
+    },
+    {
+      "productName": "NBA: Golden State Warriors vs Chicago Bulls",
+      "image": "https://www.lineups.com/wp-content/uploads/2018/12/warriors-vs-bulls.jpg",
+      "code": "CURRYBALL",
+      "price": 5000000,
+      "details": "Get ready for an exhilarating basketball extravaganza as the Golden State Warriors and the Chicago Bulls collide on the court in a battle of contrasting styles and extraordinary talent. Prepare to witness a game that promises to be a showcase of skill, teamwork, and the sheer excitement of NBA basketball.",
+      "date": "2023-12-4",
+      "time": "20:00",
+      "location": "Chase Center, San Francisco, USA",
+      "locationId": 2,
+      "sellerId": 1,
+      "category": 6,
+      "discount": 8,
+      "id": 10
+    },
+    {
+      "productName": "NBA: Golden State Warriors vs Milwaukee Bucks",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHk_EE_XLr0CQb-tRZVFgVpeY_1KH34O1TKQ&usqp=CAU",
+      "code": "CURRYBALLS",
+      "price": 5000000,
+      "details": "Get ready for an electrifying basketball showdown as the Golden State Warriors and the Milwaukee Bucks go head-to-head in a game that promises to be a thrilling showcase of NBA talent and intensity. Prepare for a night of high-flying dunks, precision plays, and a battle for supremacy on the hardwood.",
+      "date": "2023-12-8",
+      "time": "20:00",
+      "location": "Chase Center, San Francisco, USA",
+      "locationId": 2,
+      "sellerId": 2,
+      "category": 6,
+      "discount": 30,
+      "id": 11
+    },
+    {
+      "productName": "NBA: Chicago Bulls vs Golden State Warriors",
+      "image": "https://hoopshype.com/wp-content/uploads/sites/92/2021/11/i_92_13_65_GSW_vs_CHI.png?w=1000&h=600&crop=1",
+      "code": "MJGOAT",
+      "price": 6000000,
+      "details": "Prepare for an unforgettable basketball spectacle as the Chicago Bulls face off against the Golden State Warriors in a game that promises to blend tradition with innovation. Get ready to witness a clash of cultures and styles that will keep fans on the edge of their seats from tip-off to the final buzzer.",
+      "date": "2023-12-14",
+      "time": "19:00",
+      "location": "United Center, Chicago, USA",
+      "locationId": 2,
+      "sellerId": 3,
+      "category": 6,
+      "discount": 23,
+      "id": 12
+    },
+    {
+      "productName": "RACE DAY: ALL AUTOMOTIVE INFLUENCER",
+      "image": "https://cdn0-production-images-kly.akamaized.net/EDGLyZfiPyeo6OY3R1KdhOJ9IjY=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1029190/original/015437300_1445494195-Chang_International_Circuit.jpg",
+      "code": "MERDEKA78",
+      "price": 200000,
+      "details": "Rev up your engines and get ready for a thrilling showdown as automotive influencers from around the region go head-to-head in a high-speed race at the iconic Sentul International Circuit. Prepare to witness a spectacle of speed, skill, and the undeniable passion for all things automotive.",
+      "date": "2023-08-17",
+      "time": "16:00",
+      "location": "Sentul International Circuit",
+      "locationId": 1,
+      "sellerId": 1,
+      "category": 4,
+      "discount": 70,
+      "id": 13
+    },
+    {
+      "productName": "PCN Purwadika: Old Money Strikes Back",
+      "image": "https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/logo_purwadhika.original.png",
+      "code": "PURWADHIKAJAYA",
+      "price": 150000,
+      "details": "Unlock the world of digital literacy and embrace the future with confidence by joining us for an insightful seminar hosted by Purwadhika, the pioneers of tech and digital education. Get ready to enhance your skills, broaden your horizons, and navigate the digital landscape with expertise.",
+      "date": "2023-11-5",
+      "time": "13:30",
+      "location": "Purwadhika BSD, South Tangerang, Indonesia",
+      "locationId": 1,
+      "sellerId": 2,
+      "category": 3,
+      "discount": 10,
+      "id": 14
+    },
+    {
+      "productName": "Hacktiv8: Digital Litteracy!",
+      "image": "https://y6a2n7m3.rocketcdn.me/wp-content/uploads/2023/02/Hacktiv8-BSD-860x515.jpeg",
+      "code": "HAPPYHACKING",
+      "price": 150000,
+      "details": "Unlock the world of digital literacy and embrace the future with confidence by joining us for an insightful seminar hosted by Hacktiv8, the pioneers of tech and digital education. Get ready to enhance your skills, broaden your horizons, and navigate the digital landscape with expertise.",
+      "date": "2023-11-6",
+      "time": "13:30",
+      "location": "Hacktiv8 BSD, South Tangerang, Indonesia",
+      "locationId": 1,
+      "sellerId": 3,
+      "category": 3,
+      "discount": 5,
+      "id": 15
+    },
+    {
+      "productName": "Product Manager Seminar by RevoU",
+      "image": "https://assets-global.website-files.com/61af164800e38c4f53c60b4e/639acedfe1266ceb271e6d56_RevoU%20chapter.jpg",
+      "code": "PM23",
+      "price": 20000,
+      "details": "Embark on a journey of professional growth and innovation by joining us for an immersive seminar hosted by revoU, the leaders in tech education. Get ready to amplify your product management expertise, gain insights from industry experts, and unlock new dimensions of success.",
+      "date": "2023-11-7",
+      "time": "14:00",
+      "location": "GOP 1 BSD, South Tangerang, Indonesia",
+      "locationId": 1,
+      "sellerId": 1,
+      "category": 3,
+      "discount": 5,
+      "id": 16
+    },
+    {
+      "productName": "Dave Chapple Show: Singapore",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZIO8oDAtWp2iNl0npP3B324IdLZQWh7cT-46jDvso5XNOLZeCvfgwajidhqhpjyWvF1Q&usqp=CAU",
+      "code": "DPSG",
+      "price": 2000000,
+      "details": "Get ready to burst into laughter as the comedic genius Dave Chapple takes center stage for an unforgettable night of stand-up comedy in the heart of Singapore. Brace yourself for a hilarious evening filled with side-splitting jokes, witty anecdotes, and non-stop laughter.",
+      "date": "2023-12-10",
+      "time": "20:00",
+      "location": "Singapore Laugh Club, Singapore",
+      "locationId": 3,
+      "sellerId": 2,
+      "category": 2,
+      "discount": 10,
+      "id": 17
+    },
+    {
+      "productName": "PSSI: Indonesia vs Mancity",
+      "image": "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt1e96cfeabee0d128/647ca7b17ad7771d75e23d01/GettyImages-1495689259.jpg?auto=webp&format=pjpg&width=3840&quality=60",
+      "code": "LORDHALLAND",
+      "price": 2000000,
+      "details": "Get ready for a historic football event as the Indonesian national team, Timnas Indonesia, faces off against the mighty Manchester City in an exhibition match that promises excitement, passion, and football brilliance. Prepare to witness a showcase of skill and determination as these two teams collide on the pitch",
+      "date": "2023-11-19",
+      "time": "19:00",
+      "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 3,
+      "category": 5,
+      "discount": 10,
+      "id": 18
+    },
+    {
+      "productName": "PB DJARUM: INDONESIA VS DENMARK",
+      "image": "https://asset-2.tstatic.net/kalteng/foto/bank/images/anthony-sinisuka-ginting-vs-wakil-denmark-viktor-axelsen_20180920_183929.jpg",
+      "code": "GINTINGSHOT",
+      "price": 1500000,
+      "details": "Get ready for a badminton spectacle that will have fans cheering as Indonesia and Denmark's top players compete in an exhilarating match that promises to showcase skill, strategy, and sheer determination on the court. Brace yourself for a battle of champions that will keep you on the edge of your seat.",
+      "date": "2023-10-10",
+      "time": "14:00",
+      "location": "Istora Senayan, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 1,
+      "category": 8,
+      "discount": 10,
+      "id": 19
+    },
+    {
+      "productName": "PB DJARUM: INDONESIA VS JAPAN",
+      "image": "https://asset-2.tstatic.net/sumsel/foto/bank/images/Hasil-Kejuaraan-Asia-Junior-2023-Indonesia-vs-Jepang-Al-FariziJoaquin-Gagal-Bawa-Indonesia-Juara.jpg",
+      "code": "MINIONS",
+      "price": 1500000,
+      "details": "Get ready for a badminton spectacle that will have fans cheering as Indonesia and Denmark's top players compete in an exhilarating match that promises to showcase skill, strategy, and sheer determination on the court. Brace yourself for a battle of champions that will keep you on the edge of your seat.",
+      "date": "2023-10-11",
+      "time": "14:00",
+      "location": "Istora Senayan, Jakarta, Indonesia",
+      "locationId": 1,
+      "sellerId": 2,
+      "category": 8,
+      "discount": 10,
+      "id": 20
+    },
+    {
+      "productName": "TRAVIS SCOTT UTOPIA CONCERT",
+      "image": "https://media.pitchfork.com/photos/64d4f35c94b0ef4633cc8332/2:1/w_2560%2Cc_limit/pitchfork-review-template_Wide.png",
+      "code": "UTOPIAAOTY",
+      "price": 5000000,
+      "details": "Prepare to be blown away by an electrifying performance as the legendary Travis Scott takes the stage at Rolling Loud Miami. Get ready for an unforgettable night of high-energy music, mind-blowing visuals, and a show that will leave you in awe.",
+      "date": "2023-09-01",
+      "time": "23:00",
+      "location": "Hard Rock Stadium, Miami, USA",
+      "category": 1,
+      "sellerId": 3,
+      "discount": 10,
+      "locationId": 2,
+      "id": 21
+    },
+    {
+      "productName": "PSSI: Indonesia vs Brazil",
+      "image": "https://awsimages.detik.net.id/visual/2023/05/13/timnas-indonesia-u-22-menang-melawan-vietnam-dalam-lanjutan-sea-games-2023-kamboja-2_169.jpeg?w=650",
+      "code": "ASNAWIGOAT",
+      "price": 2000000,
+      "details": "Get ready for an unforgettable football extravaganza as Indonesia goes head-to-head with the football giants Brazil in an international friendly match that promises excitement, skill, and a showcase of football brilliance. Brace yourself for a clash that will captivate fans and showcase the beauty of the beautiful game.",
+      "date": "2023-08-29",
+      "time": "19:00",
+      "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+      "category": 5,
+      "sellerId": 1,
+      "discount": 10,
+      "locationId": 1,
+      "id": 22
+    },
+    {
+      "productName": "Test ",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/Battledore-and-shuttlecock.jpg",
+      "code": "BADMINTON2023",
+      "price": 100000,
+      "details": "Test",
+      "date": "2023-08-31",
+      "time": "20:00",
+      "location": "ICE",
+      "category": 8,
+      "sellerId": 2,
+      "discount": 20,
+      "locationId": 1,
+      "id": 23
+    },
+    {
+      "productName": "Test1",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Badminton-taufik_hidayat.jpg",
+      "code": "",
+      "price": 50000,
+      "details": "Test3",
+      "date": "2023-08-31",
+      "time": "00:00",
+      "location": "Test2",
+      "category": 8,
+      "sellerId": 2,
+      "discount": 0,
+      "locationId": 1,
+      "id": 24
+    },
+    {
+      "productName": "PWD EXAM",
+      "image": "data:image/jpeg;base64,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",
+      "code": "LALALA",
+      "price": 120000,
+      "details": "dsaffdsasf",
+      "date": "2023-08-14",
+      "time": "10:00",
+      "location": "adasadfasf",
+      "sellerId": 1,
+      "category": 3,
+      "discount": 10,
+      "locationId": 1,
+      "id": 25
+    },
+    {
+      "productName": "Indonesia 4.0 Conference & Expo 2023",
+      "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F532551189%2F1593806027573%2F1%2Foriginal.20230609-040523?h=2000&w=720&auto=format%2Ccompress&q=75&sharp=10&s=54363eb6715f6e4b0f8d2aebbc958582",
+      "code": "",
+      "price": 100000,
+      "details": "Setelah sukses menggelar Indonesia 4.0 Conference & Expo sejak 2021, Naganaya bersama dengan Kementerian Perindustrian dan Dewan Transformasi Digital Indonesia dengan bangga mempersembahkan Indonesia 4.0 Conference & Expo 2023. Indonesia 4.0 Conference & Expo merupakan suatu acara yang fokus mendukung industri 4.0 di Indonesia hal ini sejalan dengan program Kementerian Perindustrian yaitu Making Indonesia 4.0.",
+      "date": "2023-08-23",
+      "time": "17:00",
+      "location": "JIEXPO Kemayoran",
+      "sellerId": 3,
+      "category": 3,
+      "discount": 0,
+      "locationId": 1,
+      "id": 26
+    }
+  ],
+  "category": [
+    {
+      "name": "Music",
+      "id": 1
+    },
+    {
+      "name": "Comedy",
+      "id": 2
+    },
+    {
+      "name": "Education",
+      "id": 3
+    },
+    {
+      "name": "Racing",
+      "id": 4
+    },
+    {
+      "name": "Football",
+      "id": 5
+    },
+    {
+      "name": "Basketball",
+      "id": 6
+    },
+    {
+      "name": "Tennis",
+      "id": 7
+    },
+    {
+      "name": "Badminton",
+      "id": 8
+    }
+  ],
+  "tickets": [
+    {
+      "firstName": "MH",
+      "lastName": "Haekal",
+      "email": "haekal123@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "CHRISMARTIN",
+      "productId": "1",
+      "id": 1
+    },
+    {
+      "firstName": "Pake",
+      "lastName": "Ref",
+      "email": "haekal@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "",
+      "productId": 1,
+      "id": 2
+    },
+    {
+      "firstName": "MH",
+      "lastName": "Haekal",
+      "email": "haekal123@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "",
+      "productId": 4,
+      "id": 3
+    },
+    {
+      "firstName": "MH",
+      "lastName": "Haekal",
+      "email": "haekal123@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "LISABP",
+      "productId": 2,
+      "id": 4
+    },
+    {
+      "firstName": "Andrean",
+      "lastName": "Tan",
+      "email": "andrean@gmail.com",
+      "phoneNumber": "082213807460",
+      "refCode": "LISABP",
+      "productId": 2,
+      "id": 5
+    },
+    {
+      "firstName": "adudi",
+      "lastName": "dadu",
+      "email": "dadu@gmail.com",
+      "phoneNumber": "123812938",
+      "refCode": "",
+      "productId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "adudi",
+      "lastName": "dadu",
+      "email": "dadu@gmail.com",
+      "phoneNumber": "123812938",
+      "refCode": "",
+      "productId": 2,
+      "id": 7
+    },
+    {
+      "firstName": "adudi",
+      "lastName": "dadu",
+      "email": "dadu@gmail.com",
+      "phoneNumber": "123812938",
+      "refCode": "",
+      "productId": 2,
+      "id": 8
+    },
+    {
+      "firstName": "Andrean",
+      "lastName": "Tan",
+      "email": "andrean@gmail.com",
+      "phoneNumber": "082213807460",
+      "refCode": "",
+      "productId": 2,
+      "id": 9
+    },
+    {
+      "firstName": "Bayu Krisna",
+      "lastName": "Prasetya",
+      "email": "dasdsad@gmail.com",
+      "phoneNumber": "082112436747",
+      "refCode": "",
+      "productId": 3,
+      "id": 10
+    },
+    {
+      "firstName": "Bayu Krisna",
+      "lastName": "Prasetya",
+      "email": "bkprasetya@gmail.com",
+      "phoneNumber": "082112436747",
+      "refCode": "LISABP",
+      "productId": 7,
+      "id": 11
+    },
+    {
+      "firstName": "Bayu Krisna",
+      "lastName": "Prasetya",
+      "email": "bkprasetya@gmail.com",
+      "phoneNumber": "082112436747",
+      "refCode": "LISABP",
+      "productId": 14,
+      "id": 12
+    },
+    {
+      "firstName": "Bayu Krisna",
+      "lastName": "Prasetya",
+      "email": "bkprasetya@gmail.com",
+      "phoneNumber": "082112436747",
+      "refCode": "22936",
+      "productId": 5,
+      "id": 13
+    },
+    {
+      "firstName": "MH",
+      "lastName": "Haekal",
+      "email": "haekal123@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "78338",
+      "productId": 22,
+      "id": 14
+    },
+    {
+      "firstName": "MH",
+      "lastName": "Haekal",
+      "email": "haekal123@gmail.com",
+      "phoneNumber": "082110055558",
+      "refCode": "",
+      "productId": 26,
+      "id": 15
+    },
+    {
+      "firstName": "Albert",
+      "lastName": "Santoso",
+      "email": "albob@gmail.com",
+      "phoneNumber": "081210158888",
+      "refCode": "",
+      "productId": 3,
+      "id": 16
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Indonesia"
+    },
+    {
+      "id": 2,
+      "name": "USA"
+    },
+    {
+      "id": 3,
+      "name": "Singapore"
+    },
+    {
+      "id": 4,
+      "name": "Other Countries"
+    }
+  ],
+  "referalcode": [
+    {
+      "id": 1,
+      "userId": 7,
+      "code": "LISABP"
+    },
+    {
+      "userId": 1,
+      "code": "58489",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "code": "95256",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "code": "16462",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "code": "81422",
+      "id": 5
+    },
+    {
+      "userId": 9,
+      "code": "22936",
+      "id": 6
+    },
+    {
+      "userId": 9,
+      "code": "65466",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "code": "78338",
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "code": "78183",
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "code": "62178",
+      "id": 10
+    },
+    {
+      "userId": 10,
+      "code": "77383",
+      "id": 11
+    }
+  ]
+}

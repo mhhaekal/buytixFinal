@@ -1,0 +1,374 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "firstName": "bayu",
+            "lastName": "krisna",
+            "email": "bayu@gmail.com",
+            "password": "12345"
+        },
+        {
+            "id": 2,
+            "firstName": "andre",
+            "lastName": "wijaya",
+            "email": "andre@gmail.com",
+            "password": "qwerty"
+        },
+        {
+            "id": 3,
+            "firstName": "M",
+            "lastName": "Haekal",
+            "email": "haekal@gmail.com",
+            "password": "54321"
+        }
+    ],
+    "products": [
+        {
+            "productName": "Coldplay : Music of The Spheres Concert",
+            "image": [
+                "https://assets.loket.com/imgdir/2023-05-05/48/48f966262aea4deda759e8353bf5cabc2a0ac6a3127393267168104395.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                4,
+                5,
+                7
+            ],
+            "price": [
+                11000000,
+                8000000,
+                5000000
+            ],
+            "details": "Jakarta, 9 May 2023 - Coldplay have announced their hugely-anticipated return to Asia and Australia with a special run of stadium shows in November 2023, as part of their record-breaking Music Of The Spheres World Tour. The announcement marks the band’s first ever show in Jakarta, taking place on 15 November at Gelora Bung Karno Stadium.",
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+            "locationId": 1,
+            "seller": "MHaekal",
+            "dicount": 20,
+            "category": 1,
+            "id": 1
+        },
+        {
+            "productName": "BLACKPINK: Born Pink",
+            "image": [
+                "https://cdn06.pramborsfm.com/storage/app/media/Prambors/Editorial%202/BLACKPINK-20220921171557.jpg?tr=w-8009",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "20 Nov 2023",
+            "time": "08:00pm",
+            "location": "Gelora Bung Karno Stadium, Jakarta, Indonesia",
+            "locationId": 1,
+            "seller": "MHaekal",
+            "category": 1,
+            "id": 2
+        },
+        {
+            "productName": "OpenMic: Raditya Dika",
+            "image": [
+                "https://assets.jatimnetwork.com/crop/0x0:0x0/750x500/webp/photo/2022/07/05/600606511.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "ICE BSD, South Tangerang, Indonesia",
+            "locationId": 1,
+            "seller": "BayuK",
+            "category": 2,
+            "id": 3
+        },
+        {
+            "productName": "Liga 1: Persija vs PSM Makasar",
+            "image": [
+                "https://asset-2.tstatic.net/toraja/foto/bank/images/Persija-Jakarta-vs-PSM-Makassar-Liga-1.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Jakarta International Stadium, Jakarta, Indonesia",
+            "locationId": 1,
+            "seller": "AndreW",
+            "category": 5,
+            "id": 4
+        },
+        {
+            "productName": "MotoGP Mandalika",
+            "image": [
+                "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhYZGBgYHBoYHBoaHB4eHhwhGhocHBgcGhwcIS4lHB4rHxoaJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QGhISHzQrISE0NDQ2NDQ0NDQ0NDY0NDQ0NDQ0NTQ0NDQxNDQxNDY1MTQ0NDQ0NDQ0NDQ0NDQ0MTU0NP/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAAECAwUGB//EAEMQAAIBAgQDBAcHAQcDBAMAAAECEQADBBIhMQVBUSJhcZETMlKBobHwBhRCksHR4WIzU3KCwtLxI6LTQ5OjsgcVJP/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EAB8RAQEBAQADAQEBAQEAAAAAAAABEQISITEDUUGhE//aAAwDAQACEQMRAD8AxpqQFTy1EKa1rCBNTVD0p0Gu1XZqaKTb0poq4NTBqaIgdKcinNQqic0xplNNFGk5qBqxe+pQKMqasWngHlTrbqUM1TtXIpzS8NKCvnV4udaqC1IrVF4uDnSVxQwqYFASRTBKpDHQGjbMRBInpU1cVCyT3UzJHfRDXOlVlaqGtpUmBqt3C60K99iegqUXkUzKBuYoU3G60i5Ig01cQa6Ziq7lWZYqJqKhGnWmHjU1FMTQRWnNsU9OSKBZO6lSpUB62l6VJbC9BVuShOJ4sWkLHUnRR1P7Cus525Gbcm1PE24QlFBYagGde7Q71l4DiKu4V0UZtAQTv0MmlwriV1yWcIEQSxCme5RJ3NStXPSPAtW9TJJSY11JNY/Wzjqc37Wvz75vN2Nb7svs/E0vuqez8TQ/E8U6FAgksHMZWYkrlgDKdJnflVD8RuAXDlXsGAMpOuZBqwbX1joBWmWh92Tp8TS+7J0+JoJMXcYIVydt2QEq2sBiGjNK+qRB1qK8VLLcKhSysAgB9YMxRZ10MifAinoHnCJ0+Jp/uqdPjQNjihc6KILoqzMlWDyfHMjCmw3GMwBdcsW2uMPDIUK9QwbzEVPQO+6p0+NL7svQ+dLAYjOgYwDJVgDIBBjQ+R99EEVcgFbDL3+dN6Be/wA6LyUxt0yAX0QPM/XuqS2B1NECzThKZBT93G0ml92HU0QFrFvfaBA5VUZ9YBBGp7h41qcXr5EvU5+lexyI5RlcEGD6p9412itBMMCAQxg6jwO1B8SFtiM6tnAE5WGnOCY1onDFbdkvDZVBYAkExvpoPo1xnUvV5/jr143mZ9W/df6j5U/3fnm+FC//ALddBkaSWWMyRKhSe0Wg6ONj1qY4iCzKEckZ4jL2sjBWjtabzrFbyOYlbcc6lFC2+Io2QZWX0mqyBtAIJgmAZgU6cRQsE1zF2T3qJJ8OU0yB3ws6zTfdD1FMOKWyJk+oLkRqVPTqe7vohMQpdkHrKAT7/wBdR5imQD/dT1HxqtsE3tD4/tR7CnimRpnJgm5sg7yTHvMVYcFBy57c/wCP9aIxKjIwInSs1cMg9bTTRRuQeg2jvrNgMucOhZLoT0UzTNwpuTof84B981XhAMxhQoA2A7+Z3NUiyrHKV1kwVGvvA38Rr41ASOFPtKAdc6fvVGKwbJ+IGI276hcw6puAzHYa5R3z+I921EXR/wBER3H40GfHdT0ppVRrjiFs7N/2t+1c9xbDtdcsbiBRoo7eg5n1Nz9bUlkHcn66VKenStzu83YzeZ1MrTwTWbaBAZA1JKNqTuTpRCYq0NiB1hCP0rJsty+NMqEHxrNu3aSSem194tyCTqJg5WkTEwY8KrjDklsqS25yanUHU5ZOoB91ZpY+2B7qrLb6+/8AbSnkNsPZ6D1s3qn1iILbbwYmlNjs6L2YA7J0jUAaaQQDWIzlesdxqz70TTyGtNmQezIiOztExy5Zj5mot6DQQmihRpsoIIHhIGndWamIHjVq3QdJpo0UvWlmGUSZMczAE+QFTGKT2186ADUwenkNIYq37afmFTGLt+2n5h+9YWOzZc6E51BUACZkgnSD7NOkkAlyRII0A7xIieVPIbrYu37afmX96iLyHZ1127Q15aa61zfGT2P8w+IagkBnD+rpt/7h399XyXHRcZvOUKWoYtoxDL2RzGp3O3nQPAOFZGz3IBHqLI/NofL391Ysdi9tBZJ/M1Tde3ZkD1bceE6cq3P1s58YxeJetrrzgbRMnUkyZY6+OtW4iyroyH1WBBg8u6s9rYPIeQrL44oyCAB2v9LVykk+R0b17AIxUiUyZgMmUDtRMggj8IpWeHIrFlzAtnzbdrOxbXTkSY/WuHk9T50+dvaPma1rLsxwhOz2nlFtqpzbC2ZXQAAyd5HhFJOEoCGBbMIM6cnZzy5loPcBWRwQShLEntEakzstXPiFRzmJAKLGjETLzoJ7qmtDX4KhTKWbQIAdJGQEdOYYg1bb4cFfPmYsS5M7HPGkcoyr+UVkXsauRgtwzBj1gZPuEVpM0cz5mmjQIp4rL9LOzN+Y/vUEvnWWbxzH96eQ0sQOydcu2vTUUC1pM39qsnXNDR7zFVLfaRlckjkxJVuoINSdEYZ0UAj1kI7Snu9oVKCMNbAnto22iMSfEyBU3trBCXLag+sSxzHukDQdwqnAqO0R0oXDoHEGJBYKYGsMRlP6GoC7WFgZTctMvTMfMdnQ1PFIAkAggRqDNC+iVRmZRP4VI3/qbu+dWk/9E/X4qAT0Y60qWVunwpUADNr7zThqjm1NPI76osBAANOH5k1XPhSOtBYWJ3PwqDJNQC1ZbPUkbjT50ZMqEc4ouxcHMjTpz91Dm03fH8wKRtMOW29AeiDkRT7cprPQUWl47EfoaaLs1QFWIoO1Weho0Bx9tmQhDlO41+EjakiZVVZmOZ56GaNFrrTFAI5/8GgBxOGDrBJGoOndPXxqgYEAp227Hq+rp2s3TXWtR7Y5VT6OqA04YpDDO3aIJ0XlqOXeakOHAsjZz2coGg/DsKKGlI0FuahMfhvSKFzRBmYnkR176uRTUwDp/APnzoMk8HPtj8v80w4OfbH5T+9bAtmd9qlkipoHwGEKLkmdSdo3j9qJKak6HbQzyqRApxQUXpykBV1BEztI32qp8RNE3MpBBNBK4AIyzPM0DI8c4pppngAk7AE+Qqy2J2BPPQcu+NhQRQkVNFhw6mGHxHMa00jz0pyRt3xt3TuKg1MI6FSwIXMQuQmIbUws7g7gb70DYQBS7gwGaF2LHMfhzJoHGMEi6dIZAUB0bKxYETs2pFGLi7JVPSC729EjWdyZbUAb/WwO7m4J2cbifWHd3jp0q1D/APz+4/OoK+GBBHpgRtqv+2icW6lGyqV3kNAM7nbxoMz0nfSqiO+noIvbUTJJ00gcydKiiywUAnnVRtmdZ05a66zp00oiwnaJAPStCCopIg6knT5e+iXIAiNYqaYEEc5+evzq4YSesj9+fdT0yAKAk5TprE6efuq61aHOO6dv+Io30Ezy107xtSXAbyZI2pc1qegVlASNSNfLoaK7UZWMgjfxolcDoAeRn99aJtYXQClz/AJh8MOdSfCdK1/unZBinXDGJqGMq1Y179qJFk1oJhh0q4WKhjI+71B7FbTYeqWw9BkNaqtrZrZOFk1U2GoYyPRxJp0t1pnC1dZ4czbD3nSqYx8gqtlNbrcGfqg8T/FCX+HMOYb/AAz+tBmMf0p1O9WvYINWCxpMjl7qAfzqoXTMZTvG426+FXXAZ0FRs2GOY+wJ+I/5qCi5sx5/zVbII7Tqum2pPkAasyHKx8PnWY6a61RPE3EjKDmERJgRHdJ3qLX0DMe0c2XaRtOnLSqHt7/W1QdR0J86CzE4tWVlyHtDQ5ojWZganpBNRHEnhYC6DfWekmI/5oZlXp9e+olhy+QoDE4y3MKYZTzGxkjTaYGusVpYC+rIFaYJPeVJMgj9RzrnzcrV4SxCl1aGzCBlXLuw2jQ6bioNN0FreC52I2UddfxH4eNTtf2LeJ/mh1xQjK8jmGHayk6nvy91H4K2MijMrBiCcpmJOx74+dBjaUq2bv2feTlyEcpOvvp6GMbCW80gkk7gz8K18NbJ1O8QKqwOHHSP+TWvYsjpVtDJaHIVJMN50YlqrktVBn/dJ5Vdbw1HrbqYt0UEMPVi2B0osW6kEoK1SnyDargtOBQDi3U1SrYpRQVMlQNuiIpEUA+SmNuiCKiVoKgAOVI3DUytRy1RQ5J3NVkUSUqKoCa7flzOrjHXWQC4B31od7C8jFa+MwYXmDpOhms82R0rp+n5cybGee9CPhp5iibaKoy8oM95JE/Kn9COlP6AV5rI6M67hIkLBHjWLewx3jQV1TWBQ/3IH1hUHJPYPSh3t11eI4VJ0brvWXf4TciQszyWCfIa0HPXF7qqNFMj655LA8+XTShisTQVE931NdF9n3cIcgQjSc6gxq+01zhro+B4oIh0zTl0mOb9frWoNrCXS7QXtIZ7JNmRp3g6GgsWO32ShcnssilAde0zQdRI8eXgX96BQOoJzeqvMnp3d9ZvFrptWzvnuHLmUxl0nToB076uDq7OJAUAsrEASSQCdOY5Uq82xvHnznKCBpz7hPxmlU8V13uHsr0PnR9tB0qqxaotEoJolWqKiKkKCYFSAqIqdA4FPFUYrFJbXM5IG2gJPkB9TVyMCARsdRQPFKKrxOIVFLuYUb/x1NZ3COLm8xlMqxKmROkdkiZJ5zERQa1RziYkTvE6+MVHEXcqk9Nq5+07+k9IROvwiPlRcdJTRSRpAI50JheJ2rjlEeWWeRAMGCVJ0YAkbVFnPVlsnwXFNFUYzFpbXM+w6fzWDwj7TekuhGAAYsASIiBK6k6zqBz1HvJJrpCKaKH4jxBLKZ3IAJgSQJMExJ223oO9xxPQemSGmQBMiR1K8ttuvWqSa0GFVK2sVyXBeKOL03Ccrys7CTqD/UANPA91XcS4o5vA2mIRCqnUAMS3MnQTouta47vN2Jed9OpIJ76hlrHv/aW2jrbdGDnKGG8FjAAKghtfnyoHjfF7jXFTDmcu5zQGPcQdR41vr9euvrPPEjpstMyU9q6GXMCIjU9I35xUlYESCCDzG3nXPWsUYi4qKWbYe8+4Dc1FGDKGUyCAQfGuS4hxYvdLmfRJodoAJMf4mbLMdw3itngHFLdwMiDKE9VTvHOO7UeZqa143NaLLQ1wbfXKjLlCXKRlU2rEEBgdwwBG3Q1nXuGWWYqyRmbKChiITNsZHI8qNYwT9cqqV+3J9uR+TL+9aHLce4YtrVHJBMAEAEdkHcHXfoKvwjLLhYjMYjURmYgDuit7E4FL4ZXzCHhWXkcg1IOhHdpWLY4PcQwHQpB9qd+ydvHzqYUIuLfNlXO26ZgdVmQWE7ARoO73VXbDsipelmJgEk5lP4Q0mOfT41otw27yZBqxEExr1GXXSfMmmbhtzNmzoYZWAOb8IAkwJJ0qe19Y5fHqEcq0AgLI6SoPXvpUdxLCrduNcN22M0aAPpAA9nupU2L4dfyvU1FTBoM4ocqcXqMjQakzhQWOw1+u+h0eud+2mLvIiFCyWywz3FUMUhlykrzESeWoGtRZGPxHH38W2dGyJBRSy+sJ3SQSRP4tOXSu74VxEXEJaEZNHE6LAnNJjQjWT315weKtAS0CfRkyApyZQSS6qDKk7kHeuo+ybjEG45LFAotkMoGcEGCSAIywwjU9oSdBWJ115ZY79/n+c5nXN93PWe3O8e4pcxV0hcwtJnKESoCg5WYnfUiPHTlXQfZDiroy4a+RBQGw3tAaETv7jrPiK5/jjLhrz21LvIWC2mmj5ViSVlzv1O8mrvs3ifvGItKQUKOXMEGI1KkMNjl5Ab91bZs5/wCOq+1uKKW2YxlQAgdWJgf8VwvD0xOZbochpLojk9qO0JGgAO48QRGldf8AbSyGwjsxGZXBE850YDpoSfdXE3eJOgZCrAsAGztBHYy98jnNa/x5+rZ8j0vA8Q+8Ww0FGXsuhEMjDcEcp3HcatDd3dWL9h8OxS7dYgC4VAQGT2Bo5I0EgxA6V0ITWpW5axftRxJrGHCoe08gQSCF7iNQZI17iOdcnwnDYiy/prXrAHMh3KnXKBzbbsgzoBWj9rMYz4j0ZTIlrtAsCPSQAxy6a6zzjQ89KyTxMhywG5mZPMHTn18O6o7TPGbXQcdxxv2VdW7LQQsGT1A8JB13oF8CiWi5JJAzdMx3yjN3QZHeavw3DmNn0hLaEsomTJOpk9/vrI+0Nx3C28wYqASNA0HSOQPqjTkNOdZtsc5ztyGucbfElEuEakkFyMsqNcsajz5VoYVTaKWrkNaYgoR6qtBYqwOxbpP60DhMCptucisqqyHQ5gQMxeRrmUFTpMSKLwuKdxbsNuhLEqACd4L6DtZdD4CIq7L6dOebz7/jXfE2SrpJAMTI0EbFemU/KuW4rxTPmtoOzOZsoklgSykNvAgaR112orjnECjqgUBWOrMNIJ1APXr3HxgPCIlpSrlUYsQ7Ektl/CkJmA7QBnQc5OldOeJlrn+n63qyZFnC7HpZzOQ4MHNqZjduYGw91UPnuuEQCVElgSJIAkkkwSIGtF4rEhXVkJJdGRmQdloE29I1IGhPd7qrtYi2hzFsxPaML62YCABoARz69rrU7l5w4zrfcFPxF7Vh8OXK3HbMGnNoACeupEDXkKJ4Vxl7dl0dpzDMjQfVXRwFjQarH+KOlCsiPiEYgkMil4EQoGhmdCSV7u+o/ai8UVLaOXzsZYACZAAAEk84g7e/ST2vUybnoEMYLzZICZm0POZ/pWWkGNecVoXsL6ILctl0dM1xGOYq6jIQGBPQ7xzHKs3D8GHaDuw0Kl07ShwNICiXUHpyo7DWSSM7Z8pCNlYx6yqdGGxAEjSmYl6t913lm6HRHGzKrad4mhcRWjfWULKJI3A+Y7qw8TeYfhPkf2owouYgqdRmB8/Oh0xau/rQc+YK25Ho2XTkddarv3GPL51mYm0zfh+BpKmuiS+AW7mE+JQH5E0ifhWDg8U6Eh1ZlY6mDmBy5Z/q0POjzxK31P5T8oq+Un0tl+DprHbjim76NELmcoIIAPU7bDXXuqeOx6ujKjsrMIzZHMA7xA3oHhNu1ZzFmZmIifRvAHMDTn+1anXGW2s2dbJEcWlguxyO0k6qdCecadaejfvOH9j/AONv9tKvNnX9jt59/wBrQTFjvq1ccBvNV3nTZQo8M361QFXu+NdmGla4kOQNaVi4HEESDoQRIIO4I51z6W+4fGiEulR2SAe8v+hFBxn2kwJsXikSpOZN9QQABPOIA8Zr0L7L4NrFgq6hWd2ciQScwETG2s6dIrn8fgmvOju4LJ6pAiIMjlrr1rXwTuoGZ80bSI+QFF1j/buwFuC60gMhRWHtjUAx6uw12gGof/j5CbrOFcjIys59UPnByydzkYHejuOW3vgoSmUjvkdDvU+DtctW0tDJlUbgGSTqSdYkmhrQ+2fDxdwjx61v/qr/AJAc4gbyhb4V5xibBS4uYaNkdecq4V118DHcQa9IxF5yjLKNmBUhgYIIggw21c9xLhrXjbLFFFoKFCKdl2Uy2wqsuj+xWHZMKFdcpLu/uaINbJcTWBgMY6LlLA+Aj5k1c/EY1H6VFP8Aafh5vW1CpmcOMpkDKD65JPKB36xXD27QzhJbYqy6yH7QiOeoXzrsX40/IKfGslNb4vnLMzljSYid9+dF10uDw5FhEZcpCgEHkef71xWP4JettcuJluDK05h20HtLJ3AnVddNq68cTndlFN6VW5gzpTCWx5icS+ga66xsBMesQSwzAHUc5NdH9jrb5s8g5SSxJ7soGm5O/hWP9pOG+hvBUHYbLkGuk6ZZO+oPmK6zCoLKBAR1Yxu0anepki3rq/aIxmEDo65UfNGjyAIMgyuoP7V5/wAQw7I7KfwHJrpOVRHz8NRXdNjlG5rmOP2/SXkZPVYKHaDoQSCzADkuXyrUtjFiHAsMxJUDtFiseIGvcBRGPwLpdyKZYgFYBG89NdD03itnAGzaI9EdYg6HXxJXeqOM23vERCRIJLcu6Bvr8aW2/VnpHBcLL22uMBLEQw8SDA6TWFiUus8vbuBC0ICugYaCTA7M6/HWvQcAoFpUjQKF33gRNWYPCk5lPqkESdZnT31F15piuJ3ZKEhNwRoxE8swBj3V0v2ZwSXczu0z60EgSCYXrIME1zPGcAcNdNttcpkEc1JkH9I6g12f2V4Y6WmdjK3CWCRqId9SdjIPyoW2/a3kxhRwy6xuOo5iti9i2yq6OxR9jJ0/pI7q5W/iY5UVwvi2SUYSj+sOh9ofXyqEuVqs90zLeeeqVLCZQOD1U6eBI+dO9sHaDzB7WoO2xql8Ep5L78361HXOeoHu3bR0KovLVQPmKDx3C7d1eyURxswUeTdR8qLuYUCOg6M3wgeGm1XqpA2Zu8Lp7zMVLJXDrjK4bEo9psjqAeukN4HnUBcnkK7bH4NLq5XyxvoRI8NdK43inDjYMhiyE6NA07jrvXm7/Kz4vPeeqh6TuFKhpHU+X80q45XXXSLbs9XPlVoFkcn97D/bQ7YlF2Qe8g1Q+JB/AK+k5D2xNrkjfnH+yp23RvwMP8w/YUHhknUqo7prSW7A9VPrwoCbL2V/CD4gH5OKm2LtR6g90D5saBbEf0r7pqprxPIfH9qgvu3gT2UAHfr/AKhVuHHMoh8h/roW2xnlP13Vt4LEhB2ihPv/ANtBJhay+oAY6gx4AtVBKc0+C/pRN/ijHZl8j+q0Lex793l/FBH7zaX/ANEHxb9qpOKtz/YL+Y/tVT4x+o8v4oZ8Y45jy/igKvYu3ytAe8H5ihvvaf3f/wBf0WhLmJPd5VS149BVGmccn9yvmf0Iql76H8EeDOPk1BLc8KmH8KCnEYa25BbOYMgFwwB6jOpIPvoi1iEX8GbvZmJ+Yqo3D3UysTQHNj0/uU+P6mqHxKk/2YHgdqpJqJagKTERsi++asGNYclHurPV6WfWg0hxS7yK/lFJePYgaQh8Qf0NZ6GnkTQD/aFbmKChxbQrsygzruNTWzg+L3lRUAQBQFEAnQCBuaGRhUS5HWgMvcYuxMKf8ooZuLXDyXv7FQa53nzNZ954PPzNQdDgOKuYR1BB2lT15aVvYe2sA5V16rqPGFrzprh6Hu38q6DgeOz9koSREkZvcYBHzpY1LjpbttAN18Mrf7KynuFDIAKk6gB/lET5UV6QzAIH5uXWLop3Vz+JT7m/W/UdPVntVbdCJgA9Jn691OxU7mQfqDpVBZ0YSeyd4E+/V206wOVXEp7RJOugAHuJA0o49c4xrv2bssS0OJ1gMAB4DJpTVs+lT6KfvSrPjz/GMckJO3yozDYc7nX68Ktwt+2vrW2Y9xA/0miH4pb2FkjxI/2V0bQLxuPryqLXetJuIpyt6+P8VW2LU/g+P8VAxYHkatRF31pkxajUpPvP7UXh8Yp1Nr3a0FdoDw86vF4+0avbiY/uwPOqn4rp6g8j+9BW17TVqHfEnrVj8RnTL9edCvij7Pw/mgn6U9flVVy5PSo/fD7Pw/mqmxH9Pw/mqJMfCoqDURiNdvhVy3vqKBlU9KkUJ5VMXfCkL56jyoKSp6fCpIh2q70pH4l8qJs4wDdl/KP1FBntbNVFDWndxQP4h+X+KHa4Pb/7aAHKaURRhce3/wBtP6WPx/8AbQA59dqeaPF9v7w/lFN6Qz/anyP7UAyGmaa0bd2P/WPkRUjdP94/maDHg7R9Gqb6MRt8+VbT4iPxuPef3qq5fkf2j+f81Bz4VvZPkatwzujZ1U6b6NtRFy52vXf3n+aoke02tB2XCrxZQXnxIQCDtq6g/GtMqhEwD77P61w3CsZ6NvWI6HKDvuJJ0BrrsE6MAS5BP9aiD+WaljXNU4vDoRqi+JGFPzrPs4xEhGZMs6EmwoWd1hG2J6DeukuYZSPXb3XB+1Z9/CHWHcn/ABp+orLpbswIx7iPcf2pVQbjjTp1ez/tpqOX/nWUXPd8abXupUq6IaCeY+vdU0U9R9e6lSoC7OHbckVcS2w/T9qVKoIkNzj4VS91+X6UqVBWS/1FRNt/o0qVBV6Junxp/u7Hl8RT0qBvuT/RFN6E/Rp6VUWDDORt8RSWw3T5U9Kgb0LfUVJbJilSoHbDnp8RVLWD9GlSoIGw30aj6I0qVBJEIqfoXMQPiKVKoCEsv0+IpzaubfrSpUFTWbnMDzqk2bm2nfrSpUFNzDtzNUrhmncUqVURew22ldFwFy5y/jA13AIHPQjWlSqDXS82oDerpBD/AKXKmbz83X8tz/y0qVR0iJun2/jd/wDJSpUqNP/Z",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "1 Dec 2023",
+            "time": "2:00pm",
+            "location": "Mandalika International Circuit Lombok, Indonesia",
+            "locationId": 1,
+            "seller": "BayuK",
+            "category": 4,
+            "id": 5
+        },
+        {
+            "productName": "NewJeans Concert",
+            "image": [
+                "https://o-cdf.sirclocdn.com/unsafe/o-cdn-cas.sirclocdn.com/parenting/images/NewJeans.width-800.format-webp.webp",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "12 Oct 2023",
+            "time": "07:00pm",
+            "location": "ICE BSD, South Tangerang, Indonesia",
+            "locationId": 1,
+            "seller": "KebonQ",
+            "category": 1,
+            "id": 6
+        },
+        {
+            "productName": "F1 Singapore GP",
+            "image": [
+                "https://cdn.racingnews365.com/_1125x633_crop_center-center_85_none/SI202210020366_news.jpg?v=1664723544",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "18 Sep 2023",
+            "time": "08:00pm",
+            "location": "Singapore Int. Circuit, Marina Bay, Singapore",
+            "locationId": 3,
+            "seller": "BayuK",
+            "category": 4,
+            "id": 7
+        },
+        {
+            "productName": "NBA Playoff: LA Lakers vs Chicago Bulls",
+            "image": [
+                "https://i.ytimg.com/vi/Brw2anrJAq8/maxresdefault.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Crypto.com Arena Los Angeles, USA",
+            "locationId": 2,
+            "seller": "AndreW",
+            "category": 6,
+            "id": 8
+        },
+        {
+            "productName": "NBA: LA Lakers vs Boston Celtics",
+            "image": [
+                "https://firstsportz.com/wp-content/uploads/2021/11/Adobe-Post-20211118-1738180.21986487993532577-3-1024x576.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Crypto.com Arena, Los Angeles, USA",
+            "locationId": 2,
+            "seller": "Mamat",
+            "category": 6,
+            "id": 9
+        },
+        {
+            "productName": "NBA: Golden State Warriors vs Chicago Bulls",
+            "image": [
+                "https://www.lineups.com/wp-content/uploads/2018/12/warriors-vs-bulls.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Chase Center, Los Angeles, USA",
+            "locationId": 2,
+            "seller": "BayuK",
+            "category": 6,
+            "id": 10
+        },
+        {
+            "productName": "NBA: Golden State Warriors vs Milwaukee Bucks",
+            "image": [
+                "https://www.lineups.com/wp-content/uploads/2018/12/warriors-vs-bucks.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "Chase Center, Los Angeles, USA",
+            "locationId": 2,
+            "seller": "AndreW",
+            "category": 6,
+            "id": 11
+        },
+        {
+            "productName": "NBA: Chicago Bulls vs Golden State Warriors",
+            "image": [
+                "https://cdn.nba.com/teams/legacy/www.nba.com/bulls/sites/bulls/files/mybulls_19_gsw.jpg",
+                "https://erigostore.co.id/cdn/shop/files/id-11134201-7qul9-libacce72npy3a.jpg?v=1687491669"
+            ],
+            "ticketCat": [
+                "VIP",
+                "CAT 1",
+                "CAT 2"
+            ],
+            "stocks": [
+                20,
+                10,
+                3
+            ],
+            "date": "15 Nov 2023",
+            "time": "08:00pm",
+            "location": "United Center, Chicago, USA",
+            "locationId": 2,
+            "seller": "AndreW",
+            "category": 6,
+            "id": 12
+        }
+    ],
+    "category": [
+        {
+            "name": "Music",
+            "id": 1
+        },
+        {
+            "name": "Comedy",
+            "id": 2
+        },
+        {
+            "name": "Education",
+            "id": 3
+        },
+        {
+            "name": "Racing",
+            "id": 4
+        },
+        {
+            "name": "Football",
+            "id": 5
+        },
+        {
+            "name": "Basketball",
+            "id": 6
+        },
+        {
+            "name": "Tennis",
+            "id": 7
+        },
+        {
+            "name": "Badminton",
+            "id": 8
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Indonesia"
+        },
+        {
+            "id": 2,
+            "name": "USA"
+        },
+        {
+            "id": 3,
+            "name": "Singapore"
+        },
+        {
+            "id": 4,
+            "name": "Other Countries"
+        }
+    ]
+}
