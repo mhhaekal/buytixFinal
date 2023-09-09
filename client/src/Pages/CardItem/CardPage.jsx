@@ -14,20 +14,20 @@ export default function CardPage() {
 
     const onFetchData = async () => {
         try {
-            const res = await axios.get(`http://localhost:4123/products/${id}`);
-            const res2 = await axios.get(`http://localhost:4123/user`);
+            const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
+            const res2 = await axios.get(`http://localhost:4000/users/user`);
             console.log(res);
             // const totalStock = res.data.stocks.reduce((a, b) => {
             //     return a + b
             // })
 
             // setSelected({ ...selected, stockSize: totalStock })
-            setProduct(res.data);
-            setDataSeller(res2.data);
+            setProduct(res.data.data);
+            setDataSeller(res2.data.data);
 
         } catch (error) { }
     };
-    const getSellerName = dataSeller.filter((value) => value.id === products.sellerId)
+    const getSellerName = dataSeller.filter((value) => value.id === products.seller_id)
     useEffect(() => {
         onFetchData();
         // console.log(getSellerName[0].username)
@@ -56,7 +56,7 @@ export default function CardPage() {
 
                         <div className="px-64 pb-10">
                             <div>
-                                <div className="text-7xl font-bold text-black mb-5">{products.productName}</div>
+                                <div className="text-7xl font-bold text-black mb-5">{products.name}</div>
 
                                 <div className=" mb-10 bg-gradient-to-r from-black to-purple-800 h-[8px]">
                                 </div>
@@ -80,7 +80,7 @@ export default function CardPage() {
                                         </div>
                                         <div>
                                             <div className="font-semibold pt-5">Location</div>
-                                            <div>{products.location}</div>
+                                            <div>{products.address}</div>
                                         </div>
                                     </div>
 

@@ -9,6 +9,7 @@ Router.get('/', ticketsController.getCategory)
 Router.get('/category/:id', ticketsController.getTicket)
 Router.get('/category/name/:id', ticketsController.getCatName)
 Router.get('/all', ticketsController.getAllTicket)
+Router.get('/detail/:id', ticketsController.getTicketDetail)
 
 
 module.exports = Router
