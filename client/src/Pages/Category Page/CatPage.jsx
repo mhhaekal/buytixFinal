@@ -24,9 +24,9 @@ function CatPage() {
 
     const fetchData = async () => {
         try {
-            const ticket = await axios.get(`http://localhost:4123/products?category=${id}`)
-            console.log(ticket.data);
-            setProducts(ticket.data)
+            const ticket = await axios.get(`http://localhost:4000/tickets/category/${id}`)
+            console.log(ticket.data.data);
+            setProducts(ticket.data.data)
 
         } catch (error) {
             console.log(error);
@@ -35,26 +35,26 @@ function CatPage() {
 
     const fetchCatName = async () => {
         try {
-            const catName = await axios.get(`http://localhost:4123/category/${id}`)
-            console.log(catName.data.name)
-            setCategory(catName.data.name.toUpperCase())
+            const catName = await axios.get(`http://localhost:4000/tickets/category/name/${id}`)
+            console.log(catName.data.data[0].name)
+            setCategory(catName.data.data[0].name.toUpperCase())
         } catch (error) {
 
         }
 
     }
 
-    const onFetchData = async () => {
-        try {
-            const res = await axios.get(`http://localhost:4123/products/${id}`);
-            console.log(res.data.id);
-            setProduct(res.data);
-        } catch (error) { }
-    };
+    // const onFetchData = async () => {
+    //     try {
+    //         const res = await axios.get(`http://localhost:4123/products/${id}`);
+    //         console.log(res.data.id);
+    //         setProduct(res.data);
+    //     } catch (error) { }
+    // };
 
 
     useEffect(() => {
-        onFetchData()
+        // onFetchData()
         fetchData()
         fetchCatName()
 

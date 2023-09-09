@@ -11,8 +11,9 @@ function Category() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4123/category`)
-            setCategory(response.data)
+            const response = await axios.get(`http://localhost:4000/tickets`)
+            console.log(response.data.data)
+            setCategory(response.data.data)
         } catch (error) {
             console.log(error);
         }
@@ -46,17 +47,10 @@ function Category() {
                                 <CategoryBtn item={value} />
                             </Link>
                         </div>
-
                     )
-
                 })
-
-
                 }
-
             </div>
-
-
         </div>
     )
 

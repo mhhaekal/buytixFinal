@@ -12,8 +12,8 @@ function CatPageCard(props) {
                     </div>
 
                     <div className="w-[70%]">
-                        <div className="font-bold text-lg">{props.item.productName}</div>
-                        <div className="font-bold text-gray-400">{props.item.location}</div>
+                        <div className="font-bold text-lg">{props.item.name}</div>
+                        <div className="font-bold text-gray-400">{props.item.address}</div>
                     </div>
                     <div className="rounded-2xl btn bg-black btn-primary h-[50px] w-[15%] text-white">BUY</div>
                 </div>
