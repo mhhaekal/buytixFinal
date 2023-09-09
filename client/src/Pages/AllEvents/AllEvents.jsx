@@ -21,15 +21,15 @@ function AllEvents() {
 
     const fetchData = async () => {
         try {
-            const ticket = await axios.get(`http://localhost:4123/products`);
-            const loc = await axios.get(`http://localhost:4123/locations`);
-            const type = await axios.get("http://localhost:4123/category");
-            const res2 = await axios.get(`http://localhost:4123/user`);
-            setBackupProducts(ticket.data);
-            setProducts(ticket.data);
-            setType(type.data);
-            setLocation(loc.data);
-            setDataSeller(res2.data);
+            const ticket = await axios.get(`http://localhost:4000/tickets/all`);
+            const loc = await axios.get(`http://localhost:4000/tickets/location`);
+            const type = await axios.get("http://localhost:4000/tickets");
+            const res2 = await axios.get(`http://localhost:4000/users/user`);
+            setBackupProducts(ticket.data.data);
+            setProducts(ticket.data.data);
+            setType(type.data.data);
+            setLocation(loc.data.data);
+            setDataSeller(res2.data.data);
             console.log(dataSeller);
             // console.log(location);
         } catch (error) {
@@ -38,11 +38,11 @@ function AllEvents() {
     };
 
     const productsSeller = backupProducts.map((value) => {
-        const seller = dataSeller.find((item) => item.id === value.sellerId);
+        const seller = dataSeller.find((item) => item.id === value.seller_id);
 
         return {
             ...value,
-            sellerName: seller ? seller.username : "data tidak ditemukan",
+            sellerName: seller ? seller.username : "unknown",
         };
     });
     productsSeller.forEach((value) => console.log(value.sellerName));
@@ -66,44 +66,44 @@ function AllEvents() {
     //   setselectedType(tempSelectedType);
     //   filtered.length ? setProducts(filtered) : setProducts(tempProducts);
     // };
-    const handleChange = (categoryId) => {
+    const handleChange = (category_id) => {
         // 1
-        console.log(categoryId);
+        console.log(category_id);
         // setSelectedFilter(e);
         // console.log(e);
-        if (activefilters.includes(categoryId)) {
+        if (activefilters.includes(category_id)) {
             // []
             // dengan cara ini dapat menghapus sebuah id yang sudah ditampung pada
             // ActiveFilters
-            setActiveFilters((prev) => prev.filter((id) => id !== categoryId));
+            setActiveFilters((prev) => prev.filter((id) => id !== category_id));
         } else {
             // jika categoriId belum terdapat pada activeFilters maka akan ditambahkan ke variable tsb
-            setActiveFilters((prev) => [...prev, categoryId]); // [1]
+            setActiveFilters((prev) => [...prev, category_id]); // [1]
             // console.log(activefilters);
         }
     };
 
-    const handleChange1 = (locationId) => {
-        console.log(locationId);
+    const handleChange1 = (location_id) => {
+        console.log(location_id);
         // setSelectedFilter(e);
         // console.log(e);
-        if (selectedFilter.includes(locationId)) {
+        if (selectedFilter.includes(location_id)) {
             // dengan cara ini dapat menghapus sebuah id yang sudah ditampung pada
             // ActiveFilters
-            setSelectedFilter((prev) => prev.filter((id) => id !== locationId));
+            setSelectedFilter((prev) => prev.filter((id) => id !== location_id));
         } else {
             // jika categoriId belum terdapat pada activeFilters maka akan ditambahkan ke variable tsb
-            setSelectedFilter((prev) => [...prev, locationId]);
+            setSelectedFilter((prev) => [...prev, location_id]);
             // console.log(activefilters);
         }
     };
     let filteredData = products.filter((item) => {
         if (selectedFilter.length && !activefilters.length) {
-            return selectedFilter.includes(item.locationId);
+            return selectedFilter.includes(item.location_id);
         } else if (!selectedFilter.length && activefilters.length) {
             return activefilters.includes(item.category);
         } else {
-            return selectedFilter.includes(item.locationId) && activefilters.includes(item.category);
+            return selectedFilter.includes(item.location_id) && activefilters.includes(item.category);
         }
     });
 
@@ -158,7 +158,7 @@ function AllEvents() {
                                                 // console.log(value.id);
                                                 return (
                                                     <Checkbox
-                                                        typeName={value.name}
+                                                        typeName={value.location}
                                                         // value={value.id}
                                                         typeId={value.id}
                                                         handleFunction={handleChange1}

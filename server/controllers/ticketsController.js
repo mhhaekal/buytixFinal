@@ -110,5 +110,21 @@ module.exports = {
             next(error)
         }
     },
+    getLocation: async (req, res, next) => {
+        try {
+            // ambil id dari param
+            // const { id } = req.params
+            // ambil data findOne ticket berdasarkan category_id
+            const location = await db.location.findAll()
+            console.log(location)
+            res.status(201).send({
+                isError: false,
+                message: 'Get Success',
+                data: location
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
 
 }
