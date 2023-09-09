@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.STRING,
     time: DataTypes.STRING,
     address: DataTypes.STRING,
+    image: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP')

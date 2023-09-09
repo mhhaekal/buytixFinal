@@ -7,14 +7,14 @@ import { useNavigate } from "react-router-dom";
 export default function Create() {
   const inputProductName = useRef();
   const inputImage = useRef();
-  const inputCode = useRef();
+  // const inputCode = useRef();
   const inputPrice = useRef();
   const inputDetails = useRef();
   const inputDate = useRef();
   const inputTime = useRef();
   const inputLocation = useRef();
   const inputCategory = useRef();
-  const inputDiscount = useRef();
+  // const inputDiscount = useRef();
   const inputLocationId = useRef();
   const navigate = useNavigate();
 
@@ -22,35 +22,35 @@ export default function Create() {
     try {
       const getId = localStorage.getItem("idLogin");
       const inputs = {
-        productName: inputProductName.current.value,
-        image: inputImage.current.value,
-        code: inputCode.current.value,
+        name: inputProductName.current.value,
         price: Number(inputPrice.current.value),
         details: inputDetails.current.value,
         date: inputDate.current.value,
         time: inputTime.current.value,
-        location: inputLocation.current.value,
-        sellerId: Number(getId),
-        category: Number(inputCategory.current.value),
-        discount: Number(inputDiscount.current.value),
-        locationId: Number(inputLocationId.current.value),
+        seller_id: Number(getId),
+        category_id: Number(inputCategory.current.value),
+        location_id: Number(inputLocationId.current.value),
+        address: inputLocation.current.value,
+        images: inputImage.current.value,
+        // code: inputCode.current.value,
+        // discount: Number(inputDiscount.current.value),
       };
       // await axios.post(`http://localhost:4123/products`, { ...inputs });
       // console.log(inputs)
       if (
-        inputs.productName == "" ||
-        inputs.image == "" ||
+        inputs.name == "" ||
+        inputs.images == "" ||
         inputs.price == "" ||
         inputs.details == "" ||
         inputs.date == "" ||
         inputs.time == "" ||
-        inputs.location == "" ||
-        inputs.category == "" ||
-        inputs.locationId == ""
+        inputs.address == "" ||
+        inputs.category_id == "" ||
+        inputs.location_id == ""
       ) {
         alert("Data Belum Lengkap Guys");
       } else {
-        await axios.post(`http://localhost:4123/products`, { ...inputs });
+        await axios.post(`http://localhost:4000/tickets`, { ...inputs });
         console.log(inputs);
         if (inputs) return navigate("/create/success");
       }
@@ -62,7 +62,7 @@ export default function Create() {
       // }, 3000)
       // if (inputs) return navigate('/create/success')
     } catch (error) {
-      console.log(error);
+      alert(error.message)
     }
   };
 
