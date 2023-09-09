@@ -74,5 +74,37 @@ module.exports = {
             next(error)
         }
     },
+    getAllTicket: async (req, res, next) => {
+        try {
+            // ambil id dari param
+            // const { id } = req.params
+            // ambil data findOne ticket berdasarkan category_id
+            const allTicket = await db.ticket.findAll()
+            console.log(allTicket)
+            res.status(201).send({
+                isError: false,
+                message: 'Get Success',
+                data: allTicket
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
+    // getUser: async (req, res, next) => {
+    //     try {
+    //         // ambil id dari param
+    //         // const { id } = req.params
+    //         // ambil data findOne ticket berdasarkan category_id
+    //         const allTicket = await db.ticket.findAll()
+    //         console.log(allTicket)
+    //         res.status(201).send({
+    //             isError: false,
+    //             message: 'Get Success',
+    //             data: allTicket
+    //         })
+    //     } catch (error) {
+    //         next(error)
+    //     }
+    // },
 
 }

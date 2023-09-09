@@ -10,11 +10,11 @@ function Event() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4123/products`);
-            const res2 = await axios.get(`http://localhost:4123/user`);
+            const response = await axios.get(`http://localhost:4000/tickets/all`);
+            const res2 = await axios.get(`http://localhost:4000/users/user`);
             // console.log(response.data)
-            SetProducts(response.data.slice(0, 8));
-            setDataSeller(res2.data);
+            SetProducts(response.data.data.slice(0, 8));
+            setDataSeller(res2.data.data);
             // console.log(products)
             // console.log(dataSeller)
         } catch (error) {
@@ -25,7 +25,7 @@ function Event() {
         const seller = dataSeller.find((item) => item.id === value.id);
         return {
             ...value,
-            sellerName: seller ? seller.username : "data tidak ditemukan",
+            sellerName: seller ? seller.username : "unknown",
         };
     });
     console.log(productsSeller);
