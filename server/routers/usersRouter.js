@@ -7,5 +7,8 @@ const { usersController } = require('../controllers');
 Router.get('/login', usersController.login);
 Router.post('/register', usersController.register);
 Router.get('/user', usersController.getUser);
+Router.patch('/userid/:id', usersController.updatePoint);
+Router.patch('/buypoint', usersController.buyWithPoint);
+Router.post('/userid', usersController.getUserId);
 
 module.exports = Router;

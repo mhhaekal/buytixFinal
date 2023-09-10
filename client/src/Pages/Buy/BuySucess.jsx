@@ -8,13 +8,21 @@ function BuySuccess() {
   const { id } = useParams();
   const [products, setProduct] = useState(null);
   const [dataSeller, setDataSeller] = useState([]);
+  const [seller_id, setSeller_id] = useState([]);
+  const [sellerName, setSellerName] = useState([]);
   const onFetchData = async () => {
     try {
-      const res = await axios.get(`http://localhost:4123/products/${id}`);
-      const res2 = await axios.get(`http://localhost:4123/user`);
+
+      const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
+      const res2 = await axios.get(`http://localhost:4000/users/user`);
       console.log(res);
       setProduct(res.data);
       setDataSeller(res2.data);
+      setSeller_id(res.data.data.seller_id)
+      // console.log(res.data.data.seller_id)
+      const getSellerName = await axios.post('http://localhost:4000/users/userid', { id: res.data.data.seller_id })
+      // console.log(getSellerName.data.data.username)
+      setSellerName(getSellerName.data.data.username)
     } catch (error) {
       console.log(error);
     }
@@ -24,12 +32,22 @@ function BuySuccess() {
     let calculate = Math.floor(Math.random() * 9) + 1;
     referalCode += calculate;
   }
-  const getSellerName = dataSeller.filter((value) => value.id === products.sellerId);
+  // console.log(products)
+  // const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
+  // const getSellerName = dataSeller.filter((value) => value.id === seller_id);
+  // const getSellerName = async () => {
+  //   try {
+
+  //   } catch (error) {
+
+  //   }
+  // }
   const onSaveReferalCode = async () => {
     const getId = localStorage.getItem("idLogin");
     try {
-      const res = await axios.post(`http://localhost:4123/referalcode`, {
-        userId: Number(getId),
+
+      const res = await axios.post(`http://localhost:4000/tickets/createref`, {
+        user_id: Number(getId),
         code: referalCode,
       });
       console.log(res);
@@ -40,6 +58,7 @@ function BuySuccess() {
 
   useEffect(() => {
     onFetchData();
+    // getSellerName()
   }, []);
 
   return (
@@ -49,13 +68,13 @@ function BuySuccess() {
           <div className="w-[80%]">
             <div className="mx-36 mt-10 mb-[100px]">
               <div>
-                <div className=" text-6xl font-bold pb-5">{products.productName} </div>
+                <div className=" text-6xl font-bold pb-5">{products.data.name} </div>
 
                 <div className="flex gap-1 font-bold mb-3">
-                  <div className="text-gray-500">{products.date} |</div>
-                  <div className="text-gray-500">{products.time} |</div>
-                  <div className="text-gray-500">{products.location} |</div>
-                  <div className="text-purple-800">by {getSellerName[0].username}</div>
+                  <div className="text-gray-500">{products.data.date} |</div>
+                  <div className="text-gray-500">{products.data.time} |</div>
+                  <div className="text-gray-500">{products.data.address} |</div>
+                  <div className="text-purple-800">by {sellerName}</div>
                 </div>
 
                 <div className=" mb-10 bg-gradient-to-r from-black to-purple-800 h-[8px]"></div>

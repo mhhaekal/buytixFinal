@@ -21,45 +21,44 @@ export default function Buy() {
   const [point, setPoint] = useState(null);
   // const inputPriceTotal = useRef();
 
+
   const onFetchData = async () => {
     try {
-      const res = await axios.get(`http://localhost:4123/products/${id}`);
-      const res2 = await axios.get(`http://localhost:4123/user`);
+      const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
+      const res2 = await axios.get(`http://localhost:4000/users/user`);
       console.log(res);
-      setProduct(res.data);
-      setDataSeller(res2.data);
+      setProduct(res.data.data);
+      setDataSeller(res2.data.data);
     } catch (error) { }
   };
-  const getSellerName = dataSeller.filter((value) => value.id === products.sellerId);
+  const getSellerName = dataSeller.filter((value) => value.id === products.seller_id);
   const onCheckRef = async () => {
     const getId = localStorage.getItem("idLogin");
     console.log(getId);
     try {
       if (!inputRefCode.current.value) return toast.error("Please type the referral code");
       //   const getReferal = awat axios.get()
-      const getPrice = await axios.get(`http://localhost:4123/products/${id}`);
-      const checkRef = await axios.get(
-        `http://localhost:4123/referalcode?code=${inputRefCode.current.value}`
-      );
-      // console.log(checkRef.data.code)
+      const getPrice = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
+      const checkRef = await axios.get(`http://localhost:4000/tickets/reff?code=${inputRefCode.current.value}`);
+      console.log(checkRef.data.data)
       //   console.log(checkRef.data[0].userId);
-      if (checkRef.data.length) {
-        const userReferalId = Number(checkRef.data[0].userId);
+      if (checkRef.data.data) {
+        const userReferalId = checkRef.data.data.user_id;
         if (userReferalId === Number(getId)) {
           //   console.log("lu curang goblok");
           return toast.error("You cannot use your own refferal code, please try again");
         } else {
-          const fixPrice = (10 / 100) * getPrice.data.price;
+          const fixPrice = (10 / 100) * getPrice.data.data.price;
           setDiscount(fixPrice);
-          const getUser = await axios.get(`http://localhost:4123/user/${userReferalId}`);
-          const point = getUser.data.point;
-          setPoint(point);
-          await axios.patch(`http://localhost:4123/user/${userReferalId}`, { point: point + 1 });
+          // const getUser = await axios.get(`http://localhost:4000/users/userid/${userReferalId}`);
+          // const point = getUser.data.data.point;
+          // setPoint(point);
+          await axios.patch(`http://localhost:4000/users/userid/${userReferalId}`);
           setIsButton(true);
           return toast.success(`Congratulation! you get 10% discount`);
 
         }
-      } else if (!checkRef.data.length) {
+      } else if (!checkRef.data.data) {
         // console.log(">>>>");
         return toast.error("Refferal code not found, please try again")
 
@@ -72,28 +71,32 @@ export default function Buy() {
   const onBuyEventWithPoint = async () => {
     const getId = localStorage.getItem("idLogin");
     try {
+      const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
       const inputs = {
-        firstName: inputFirstName.current.value,
-        lastName: inputLastName.current.value,
+        first_name: inputFirstName.current.value,
+        last_name: inputLastName.current.value,
         email: inputEmail.current.value,
-        phoneNumber: inputPhoneNumber.current.value,
-        refCode: inputRefCode.current.value,
-        productId: Number(id),
+        phone_number: inputPhoneNumber.current.value,
+        referral_code_id: refid.data.data.id,
+        ticket_id: Number(id),
+        user_id: localStorage.getItem("idLogin")
       };
       if (
-        inputs.firstName === "" ||
-        inputs.lastName === "" ||
+        inputs.first_name === "" ||
+        inputs.last_name === "" ||
         inputs.email === "" ||
-        inputs.phoneNumber === ""
+        inputs.phone_number === ""
       ) {
         toast.error("Please fill all the data!");
       } else {
-        await axios.post(`http://localhost:4123/tickets`, { ...inputs });
-        const res = await axios.get(`http://localhost:4123/user/${getId}`);
+        await axios.post(`http://localhost:4000/tickets/buy`, { ...inputs });
+        // const res = await axios.get(`http://localhost:4123/user/${getId}`);
+        // const getSellerName = await axios.post('http://localhost:4000/users/userid', { id: res.data.data.seller_id })
+        const res = await axios.post('http://localhost:4000/users/userid', { id: getId })
         if (res.data.point === 0) {
           return toast.error("You don't have enough points");
         } else {
-          await axios.patch(`http://localhost:4123/user/${getId}`, { point: res.data.point - 2 });
+          await axios.patch(`http://localhost:4000/users/buypoint`, { id: getId });
         }
         console.log(inputs);
         if (inputs) return navigate(`/buy/success/${id}`);
@@ -103,31 +106,38 @@ export default function Buy() {
 
   const onPrice = async () => {
     try {
-      const checkRef = await axios.get(`http://localhost:4123/products/${id}`);
-      console.log(checkRef.data.price);
-      setPrice(checkRef.data.price);
+      const checkRef = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
+      console.log(checkRef.data.data.price);
+      setPrice(checkRef.data.data.price);
     } catch (error) { }
   };
 
   const onBuyEvent = async () => {
     try {
+      console.log("lalala")
+      // console.log(Number(inputRefCode.current.value))
+
+      const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
+      console.log(refid)
+
       const inputs = {
-        firstName: inputFirstName.current.value,
-        lastName: inputLastName.current.value,
+        first_name: inputFirstName.current.value,
+        last_name: inputLastName.current.value,
         email: inputEmail.current.value,
-        phoneNumber: inputPhoneNumber.current.value,
-        refCode: inputRefCode.current.value,
-        productId: Number(id),
+        phone_number: inputPhoneNumber.current.value,
+        referral_code_id: refid.data.data.id,
+        ticket_id: Number(id),
+        user_id: localStorage.getItem("idLogin")
       };
       if (
-        inputs.firstName === "" ||
-        inputs.lastName === "" ||
+        inputs.first_name === "" ||
+        inputs.last_name === "" ||
         inputs.email === "" ||
-        inputs.phoneNumber === ""
+        inputs.phone_number === ""
       ) {
         toast.error("Please fill all the data!");
       } else {
-        await axios.post(`http://localhost:4123/tickets`, { ...inputs });
+        await axios.post(`http://localhost:4000/tickets/buy`, { ...inputs });
         console.log(inputs);
         if (inputs) return navigate(`/buy/success/${id}`);
       }
@@ -151,12 +161,12 @@ export default function Buy() {
           <div className="w-[70%]">
             <div className="mx-36 mt-10 mb-[50px]">
               <div>
-                <div className=" w-[700px] text-6xl font-bold pb-5">{products.productName} </div>
+                <div className=" w-[700px] text-6xl font-bold pb-5">{products.name} </div>
 
                 <div className="flex gap-1 font-bold mb-3">
                   <div className="text-gray-500">{products.date} |</div>
                   <div className="text-gray-500">{products.time} |</div>
-                  <div className="text-gray-500">{products.location} |</div>
+                  <div className="text-gray-500">{products.address} |</div>
                   <div className="text-purple-800">by {getSellerName[0].username}</div>
                 </div>
 

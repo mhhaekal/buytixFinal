@@ -31,7 +31,7 @@ export default function Create() {
         category_id: Number(inputCategory.current.value),
         location_id: Number(inputLocationId.current.value),
         address: inputLocation.current.value,
-        images: inputImage.current.value,
+        image: inputImage.current.value,
         // code: inputCode.current.value,
         // discount: Number(inputDiscount.current.value),
       };
@@ -39,7 +39,7 @@ export default function Create() {
       // console.log(inputs)
       if (
         inputs.name == "" ||
-        inputs.images == "" ||
+        inputs.image == "" ||
         inputs.price == "" ||
         inputs.details == "" ||
         inputs.date == "" ||

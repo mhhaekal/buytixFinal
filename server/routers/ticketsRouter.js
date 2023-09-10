@@ -11,6 +11,10 @@ Router.get('/category/name/:id', ticketsController.getCatName)
 Router.get('/all', ticketsController.getAllTicket)
 Router.get('/detail/:id', ticketsController.getTicketDetail)
 Router.get('/location', ticketsController.getLocation)
+Router.get(`/reff`, ticketsController.referralCode)
+Router.post(`/buy`, ticketsController.buyTicket)
+Router.post(`/refid`, ticketsController.getRefId)
+Router.post(`/createref`, ticketsController.createReferral)
 
 
 module.exports = Router
