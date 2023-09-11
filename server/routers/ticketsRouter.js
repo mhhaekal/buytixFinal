@@ -16,7 +16,7 @@ Router.get(`/reff`, ticketsController.referralCode)
 Router.post(`/buy`, ticketsController.buyTicket)
 Router.post(`/refid`, ticketsController.getRefId)
 Router.post(`/createref`, ticketsController.createReferral)
-// Router.post(`/upload`, ticketsController.uploadImage)
+Router.get(`/filtercat`, ticketsController.filterCat)
 
 
 module.exports = Router

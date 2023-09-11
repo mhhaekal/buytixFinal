@@ -3,7 +3,7 @@ import { useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-// import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Create() {
   const inputProductName = useRef();
@@ -73,8 +73,34 @@ export default function Create() {
       image.forEach(value => {
         fd.append('images', value)
       })
-      await axios.post(`http://localhost:4000/tickets`, fd);
-      alert('Data Created')
+
+      if (
+        inputs.name === "" ||
+        inputs.image === "" ||
+        inputs.price === "" ||
+        inputs.details === "" ||
+        inputs.date === "" ||
+        inputs.time === "" ||
+        inputs.address === "" ||
+        inputs.category_id === "" ||
+        inputs.location_id === ""
+      ) {
+        toast.error("Please Fill All Data!");
+      } else {
+        await axios.post(`http://localhost:4000/tickets`, fd);
+        // alert('Data Created')
+        // console.log(inputs);
+        // if (inputs) return navigate("/create/success");
+        toast.success('Create Event Success!')
+        // alert("Create Event Success!");
+        setTimeout(() => {
+          <Link to={'/'}></Link>
+        }, 3000)
+        if (inputs) return navigate('/create/success')
+      }
+
+
+
     } catch (error) {
       console.log(error)
     }
@@ -217,7 +243,7 @@ export default function Create() {
           </div> */}
           <div>
             <label className="label">
-              <span className="label-text font-bold">Hotel Image</span>
+              <span className="label-text font-bold">Event Image</span>
             </label>
             <input onChange={(e) => onSelectImages(e)} type="file" multiple="multiple" className=" file-input file-input-bordered w-full max-w-xs" />
           </div>

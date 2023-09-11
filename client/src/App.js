@@ -18,6 +18,7 @@ import { onCheckisLogin } from "./redux/Features";
 import CreateSucess from './Pages/Create/CreateSucess';
 import AllEvents from './Pages/AllEvents/AllEvents';
 import CardPage from './Pages/CardItem/CardPage';
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function App() {
       {/* <Landing /> */}
 
       {/* <CatPage /> */}
-
+      <Toaster />
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/landing' element={<LandingV2 />} />

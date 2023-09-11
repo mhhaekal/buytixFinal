@@ -228,29 +228,22 @@ module.exports = {
         }
     },
 
-    // uploadImage: async (req, res, next) => {
-    //     const t = await sequelize.transaction()
-    //     try {
-    //         const data = JSON.parse(req.body.data)
-    //         const createdHotel = await db.hotel.create({ ...data }, { transaction: t })
-
-    //         const dataImage = req.files.images.map(value => {
-    //             return { url: value.path, hotels_id: createdHotel.id }
-    //         })
-
-    //         await db.hotel_image.bulkCreate(dataImage, { transaction: t })
-
-    //         await t.commit()
-    //         res.status(201).send({
-    //             isError: false,
-    //             message: 'Create Hotel Success',
-    //             data: null
-    //         })
-    //     } catch (error) {
-    //         deleteFiles(req.files)
-    //         await t.rollback()
-    //         next(error)
-    //     }
-    // },
-
+    filterCat: async (req, res, next) => {
+        try {
+            const { category_id } = req.query
+            const cat = await db.ticket.findAll({
+                where: {
+                    category_id
+                }
+            })
+            console.log(cat)
+            res.status(201).send({
+                isError: false,
+                message: 'Event Successfully Created',
+                data: cat
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
 }

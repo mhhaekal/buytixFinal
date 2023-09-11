@@ -5,6 +5,7 @@ import CatPageCard from "../Category Page/CatPageCard";
 import { useEffect, useState } from "react";
 import Checkbox from "../../Component/Checkbox/Checkbox";
 import { Link } from "react-router-dom";
+import { async } from "q";
 
 function AllEvents() {
     const [backupProducts, setBackupProducts] = useState([]);
@@ -66,7 +67,7 @@ function AllEvents() {
     //   setselectedType(tempSelectedType);
     //   filtered.length ? setProducts(filtered) : setProducts(tempProducts);
     // };
-    const handleChange = (category_id) => {
+    const handleChange = async (category_id) => {
         // 1
         console.log(category_id);
         // setSelectedFilter(e);
@@ -76,9 +77,13 @@ function AllEvents() {
             // dengan cara ini dapat menghapus sebuah id yang sudah ditampung pada
             // ActiveFilters
             setActiveFilters((prev) => prev.filter((id) => id !== category_id));
+
         } else {
             // jika categoriId belum terdapat pada activeFilters maka akan ditambahkan ke variable tsb
+            const getFilter = await axios.get(`http://localhost:4000/tickets/filtercat?category_id=${activefilters}`)
+            console.log(getFilter)
             setActiveFilters((prev) => [...prev, category_id]); // [1]
+
             // console.log(activefilters);
         }
     };
@@ -101,9 +106,9 @@ function AllEvents() {
         if (selectedFilter.length && !activefilters.length) {
             return selectedFilter.includes(item.location_id);
         } else if (!selectedFilter.length && activefilters.length) {
-            return activefilters.includes(item.category);
+            return activefilters.includes(item.category_id);
         } else {
-            return selectedFilter.includes(item.location_id) && activefilters.includes(item.category);
+            return selectedFilter.includes(item.location_id) && activefilters.includes(item.category_id);
         }
     });
 
@@ -138,7 +143,7 @@ function AllEvents() {
                                     <div className="collapse-content">
                                         {type &&
                                             type.map((value, index) => {
-                                                // console.log(value.id);
+                                                // console.log(value);
                                                 return (
                                                     <Checkbox
                                                         typeName={value.name}
