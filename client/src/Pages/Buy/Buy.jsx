@@ -71,13 +71,15 @@ export default function Buy() {
   const onBuyEventWithPoint = async () => {
     const getId = localStorage.getItem("idLogin");
     try {
+      console.log("lalala")
       const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
+      console.log(refid)
       const inputs = {
         first_name: inputFirstName.current.value,
         last_name: inputLastName.current.value,
         email: inputEmail.current.value,
         phone_number: inputPhoneNumber.current.value,
-        referral_code_id: refid.data.data.id,
+        referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
         user_id: localStorage.getItem("idLogin")
       };
@@ -125,7 +127,7 @@ export default function Buy() {
         last_name: inputLastName.current.value,
         email: inputEmail.current.value,
         phone_number: inputPhoneNumber.current.value,
-        referral_code_id: refid.data.data.id,
+        referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
         user_id: localStorage.getItem("idLogin")
       };

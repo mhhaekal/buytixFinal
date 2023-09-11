@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 // import toast, { Toaster } from 'react-hot-toast';
 
 export default function Create() {
@@ -17,8 +18,23 @@ export default function Create() {
   // const inputDiscount = useRef();
   const inputLocationId = useRef();
   const navigate = useNavigate();
+  const [data, setData] = useState([])
+  const [image, setImage] = useState([])
 
-  const onCreateEvent = async () => {
+  const onSelectImages = (event) => {
+    try {
+      const files = [...event.target.files]
+      files.forEach(value => {
+        if (value.size > 1000000 || value.type.split('/')[0] !== 'image') throw { message: `${value.name} Size Too Large / File Must be Image` }
+      })
+
+      setImage(files)
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
+  const onSetInput = async () => {
     try {
       const getId = localStorage.getItem("idLogin");
       const inputs = {
@@ -30,41 +46,98 @@ export default function Create() {
         seller_id: Number(getId),
         category_id: Number(inputCategory.current.value),
         location_id: Number(inputLocationId.current.value),
-        address: inputLocation.current.value,
-        image: inputImage.current.value,
-        // code: inputCode.current.value,
-        // discount: Number(inputDiscount.current.value),
+        address: inputLocation.current.value
       };
-      // await axios.post(`http://localhost:4123/products`, { ...inputs });
-      // console.log(inputs)
-      if (
-        inputs.name == "" ||
-        inputs.image == "" ||
-        inputs.price == "" ||
-        inputs.details == "" ||
-        inputs.date == "" ||
-        inputs.time == "" ||
-        inputs.address == "" ||
-        inputs.category_id == "" ||
-        inputs.location_id == ""
-      ) {
-        alert("Data Belum Lengkap Guys");
-      } else {
-        await axios.post(`http://localhost:4000/tickets`, { ...inputs });
-        console.log(inputs);
-        if (inputs) return navigate("/create/success");
-      }
-
-      // toast.success('Create Event Success!')
-      // alert("Create Event Success!");
-      // setTimeout(() => {
-      //     <Link to={'/'}></Link>
-      // }, 3000)
-      // if (inputs) return navigate('/create/success')
+      setData(inputs)
     } catch (error) {
       alert(error.message)
     }
-  };
+  }
+
+  const onSubmit = async () => {
+    try {
+      const getId = localStorage.getItem("idLogin");
+      const inputs = {
+        name: inputProductName.current.value,
+        price: Number(inputPrice.current.value),
+        details: inputDetails.current.value,
+        date: inputDate.current.value,
+        time: inputTime.current.value,
+        seller_id: Number(getId),
+        category_id: Number(inputCategory.current.value),
+        location_id: Number(inputLocationId.current.value),
+        address: inputLocation.current.value
+      };
+      const fd = new FormData()
+      fd.append('data', JSON.stringify(inputs))
+      image.forEach(value => {
+        fd.append('images', value)
+      })
+      await axios.post(`http://localhost:4000/tickets`, fd);
+      alert('Data Created')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // const onCreateEvent = async () => {
+  //   try {
+  //     const getId = localStorage.getItem("idLogin");
+  //     const inputs = {
+  //       name: inputProductName.current.value,
+  //       price: Number(inputPrice.current.value),
+  //       details: inputDetails.current.value,
+  //       date: inputDate.current.value,
+  //       time: inputTime.current.value,
+  //       seller_id: Number(getId),
+  //       category_id: Number(inputCategory.current.value),
+  //       location_id: Number(inputLocationId.current.value),
+  //       address: inputLocation.current.value,
+  //       // code: inputCode.current.value,
+  //       // discount: Number(inputDiscount.current.value),
+  //     };
+  //     // const inputImages = {
+  //     //   image: inputImage.current.value,
+  //     // }
+  //     setData(inputs)
+  //     // setImage(inputImages)
+  //     const fd = new FormData()
+  //     fd.append('data', JSON.stringify(data))
+  //     image.forEach(value => {
+  //       fd.append('images', value)
+  //     })
+  //     // await axios.post(`http://localhost:4123/products`, { ...inputs });
+  //     // console.log(inputs)
+  //     if (
+  //       inputs.name == "" ||
+  //       inputs.image == "" ||
+  //       inputs.price == "" ||
+  //       inputs.details == "" ||
+  //       inputs.date == "" ||
+  //       inputs.time == "" ||
+  //       inputs.address == "" ||
+  //       inputs.category_id == "" ||
+  //       inputs.location_id == ""
+  //     ) {
+  //       alert("Data Belum Lengkap Guys");
+  //     } else {
+
+  //       await axios.post(`http://localhost:4000/tickets`, { ...inputs });
+  //       console.log(inputs);
+  //       if (inputs) return navigate("/create/success");
+  //     }
+
+  //     // toast.success('Create Event Success!')
+  //     // alert("Create Event Success!");
+  //     // setTimeout(() => {
+  //     //     <Link to={'/'}></Link>
+  //     // }, 3000)
+  //     // if (inputs) return navigate('/create/success')
+  //   } catch (error) {
+  //     alert(error.message)
+  //   }
+  // };
+
 
   return (
     <div>
@@ -146,7 +219,7 @@ export default function Create() {
             <label className="label">
               <span className="label-text font-bold">Hotel Image</span>
             </label>
-            <input type="file" multiple="multiple" className=" file-input file-input-bordered w-full max-w-xs" />
+            <input onChange={(e) => onSelectImages(e)} type="file" multiple="multiple" className=" file-input file-input-bordered w-full max-w-xs" />
           </div>
           <div>
             <div>
@@ -188,7 +261,7 @@ export default function Create() {
           <Link to={"/"}>
             <div className="btn bg-black text-white w-[200px] hover:bg-black">CANCEL</div>
           </Link>
-          <div onClick={onCreateEvent} className="btn w-[200px] btn-primary ml-10 text-white">
+          <div onClick={onSubmit} className="btn w-[200px] btn-primary ml-10 text-white">
             CREATE EVENT
           </div>
         </div>

@@ -194,7 +194,7 @@ module.exports = {
                 }
             })
             if (!refId) {
-                res.status(201).send({
+                return res.status(201).send({
                     isError: true,
                     message: 'gagal',
                     data: null
