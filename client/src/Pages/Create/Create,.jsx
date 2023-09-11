@@ -136,13 +136,18 @@ export default function Create() {
               <option value="4">Other Countries</option>
             </select>
           </div>
-          <div className="form-control">
+          {/* <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold"> Image (Link)</span>
+              <span className="label-text font-bold"> Image (file)</span>
             </label>
             <input type="text" ref={inputImage} className="input input-bordered w-[400px]" />
+          </div> */}
+          <div>
+            <label className="label">
+              <span className="label-text font-bold">Hotel Image</span>
+            </label>
+            <input type="file" multiple="multiple" className=" file-input file-input-bordered w-full max-w-xs" />
           </div>
-
           <div>
             <div>
               <label className="label">

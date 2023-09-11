@@ -3,8 +3,9 @@ const Router = express.Router()
 
 // Import All Controller
 const { ticketsController } = require('../controllers')
+const upload = require('./../middleware/upload')
 
-Router.post('/', ticketsController.create)
+Router.post('/', upload, ticketsController.create)
 Router.get('/', ticketsController.getCategory)
 Router.get('/category/:id', ticketsController.getTicket)
 Router.get('/category/name/:id', ticketsController.getCatName)
@@ -15,6 +16,7 @@ Router.get(`/reff`, ticketsController.referralCode)
 Router.post(`/buy`, ticketsController.buyTicket)
 Router.post(`/refid`, ticketsController.getRefId)
 Router.post(`/createref`, ticketsController.createReferral)
+// Router.post(`/upload`, ticketsController.uploadImage)
 
 
 module.exports = Router

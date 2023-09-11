@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 const { usersRouter, ticketsRouter } = require('./routers')
 app.use('/users', usersRouter)
 app.use('/tickets', ticketsRouter)
+app.use(express.static('public'))
 app.listen(PORT, () => console.log(`API Running on Port ${PORT}`))
 
 // Centralized Error

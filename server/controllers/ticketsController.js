@@ -6,13 +6,25 @@ module.exports = {
         // const t = await sequelize.transaction()
         try {
             // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
-            const data = req.body
-            const createTicket = await db.ticket.create({ ...data })
-            console.log(data)
+            const data = JSON.parse(req.body.data)
+            const data2 = req.files.images[0].path
+            console.log(data2)
+            const createTicket = await db.ticket.create({ ...data, image: data2 })
+            // console.log(createTicket.dataValues.id)
+            // const getData = await db.ticket.findOne({
+            //     where: {
+            //         id: id
+            //     }
+            // })
+            // const dataImage = req.files.images.map(value => {
+
+            // })
+            // await db.ticket.create()
+            // console.log(getData)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
-                data: null
+                data: createTicket
             })
         } catch (error) {
             next(error)
@@ -198,6 +210,7 @@ module.exports = {
             next(error)
         }
     },
+
     createReferral: async (req, res, next) => {
         // const t = await sequelize.transaction()
         try {
@@ -214,5 +227,30 @@ module.exports = {
             next(error)
         }
     },
+
+    // uploadImage: async (req, res, next) => {
+    //     const t = await sequelize.transaction()
+    //     try {
+    //         const data = JSON.parse(req.body.data)
+    //         const createdHotel = await db.hotel.create({ ...data }, { transaction: t })
+
+    //         const dataImage = req.files.images.map(value => {
+    //             return { url: value.path, hotels_id: createdHotel.id }
+    //         })
+
+    //         await db.hotel_image.bulkCreate(dataImage, { transaction: t })
+
+    //         await t.commit()
+    //         res.status(201).send({
+    //             isError: false,
+    //             message: 'Create Hotel Success',
+    //             data: null
+    //         })
+    //     } catch (error) {
+    //         deleteFiles(req.files)
+    //         await t.rollback()
+    //         next(error)
+    //     }
+    // },
 
 }

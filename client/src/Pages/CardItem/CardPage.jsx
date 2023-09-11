@@ -49,7 +49,7 @@ export default function CardPage() {
 
 
                         <div>
-                            <img className="h-[500px] w-full object-fit pb-10 px-64 py-10" src={products.image} alt="" />
+                            <img className="h-[500px] w-full object-fit pb-10 px-64 py-10" src={`http://localhost:4000/${products.image.substring(7)}`} alt="" />
                         </div>
 
 

@@ -4,7 +4,7 @@ function Card(props) {
             <div className="card w-60 h-[450px] bg-base-100 shadow-xl hover:scale-105 ease-in duration-200">
                 <div className=" h-[500px] flex flex-col">
                     <figure className="border rounded-t-xl object-cover h-[100px]">
-                        <img src={props.item.image} alt="Event Picture" />
+                        <img src={`http://localhost:4000/${props.item.image.substring(7)}`} alt="Event Picture" />
                     </figure>
 
                     <div className="card-body">
