@@ -86,7 +86,7 @@ export const onCheckisLogin = () => async (dispatch) => {
     console.log(token);
     const res = await axios.get(`http://localhost:4000/users/verif/${token}`);
     console.log(res);
-    alert("test");
+    // alert("test");
     // console.log(res.data.username);
     dispatch(setFirstName(res.data.data));
   } catch (error) {
@@ -94,8 +94,8 @@ export const onCheckisLogin = () => async (dispatch) => {
     if (error.response.data.isError && localStorage.getItem("tokenLogin")) {
       localStorage.removeItem("tokenLogin");
       // alert("please re-login");
-      toast.success("your account is expired");
-      console.log("ayam");
+      toast.error("your account is expired");
+      // console.log("ayam");
       // setTimeout(() => {
       //   toast.error("your account is expired");
       // }, 3000);

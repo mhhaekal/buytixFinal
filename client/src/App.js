@@ -20,6 +20,7 @@ import AllEvents from "./Pages/AllEvents/AllEvents";
 import CardPage from "./Pages/CardItem/CardPage";
 import Test from "./Pages/test";
 import Verify from "./Pages/verify/verify";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +34,7 @@ function App() {
   return (
     <div data-theme="light">
       {/* <Landing /> */}
-
-      {/* <CatPage /> */}
-
+      <Toaster />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/landing" element={<LandingV2 />} />
