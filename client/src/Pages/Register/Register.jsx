@@ -3,24 +3,24 @@ import InputText from "../../Component/Input Text/InputText";
 import { useDispatch, useSelector } from "react-redux";
 import { onRegisterAsync } from "../../redux/Features";
 import { Link, useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast"
 
 function Register() {
   const [inputNewEmail, setInputNewEmail] = useState("");
   const [inputNewPassword, setInputNewPassword] = useState("");
   const [inputUserNewName, setInputUserNewName] = useState("");
-  // const { firstName } = useSelector((state) => state.user);
+  const { firstName } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onRegister = (inputNewEmail, inputUserNewName, inputNewPassword) => {
     dispatch(onRegisterAsync(inputNewEmail, inputUserNewName, inputNewPassword));
-    // navigate("/");
   };
 
-  // if (firstName) return navigate("/");
+  if (firstName) return navigate("/");
   return (
     <div className="h-screen">
+
       <Toaster />
 
       <div className="flex h-screen">

@@ -13,22 +13,22 @@ function Nav() {
   const dispatch = useDispatch();
 
   const onSignOut = () => {
-    localStorage.removeItem("tokenLogin");
+    localStorage.removeItem("idLogin");
     dispatch(setFirstName(""));
   };
-  // const fetchData = async () => {
-  //   const getId = localStorage.getItem("idLogin");
-  //   try {
-  //     const res = await axios.get(`http://localhost:4123/user/${getId}`);
-  //     console.log(res.data);
-  //     setEmail(res.data.email);
-  //     setPoint(res.data.point);
-  //   } catch (error) {}
-  // };
+  const fetchData = async () => {
+    const getId = localStorage.getItem("idLogin");
+    try {
+      const res = await axios.get(`http://localhost:4123/user/${getId}`);
+      console.log(res.data);
+      setEmail(res.data.email);
+      setPoint(res.data.point);
+    } catch (error) {}
+  };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="navbar bg-black gap-2 px-40 h-[50px]">
