@@ -5,6 +5,8 @@ const { createJWT } = require("./../lib/jwt");
 const handlebars = require("handlebars");
 const transporter = require("./../helper/transporter");
 const { log } = require("console");
+const { hash, match } = require('./../helper/hashing');
+
 
 
 module.exports = {
@@ -28,8 +30,8 @@ module.exports = {
             //       isError: true,
             //       message: "Email Already Exist",
             //     });
-
-            const createUser = await db.user.create({ username, email, password, point });
+            const hashPassword = await hash(password)
+            const createUser = await db.user.create({ username, email, password: hashPassword, point });
 
             const token = await createJWT({ id: createUser.dataValues.id }, "1h");
 
@@ -79,12 +81,15 @@ module.exports = {
             const { email, password } = req.query;
             console.log(email);
             console.log(password);
-            const getUser = await db.user.findOne({ where: { email, password } });
+            const getUser = await db.user.findOne({ where: { email } });
+
             if (!getUser)
                 return res.status(200).send({
                     isError: true,
-                    message: "email or password is invalid",
+                    message: "User doesn't exist",
                 });
+            const hashMatch = await match(password, getUser.dataValues.password)
+            if (!hashMatch) throw { message: 'Wrong Password!' }
             const token = await createJWT({ id: getUser.dataValues.id }, "10s");
             res.status(200).send({
                 isError: false,

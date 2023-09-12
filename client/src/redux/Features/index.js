@@ -76,7 +76,11 @@ export const onLoginAsync = (email, password) => async (dispatch) => {
     toast.success(`Welcome Back ${res.data.data}!`);
     // if (res.data.length) return true;
   } catch (error) {
-    console.log(error);
+    if (error.response.data.isError) {
+      toast.error(error.response.data.message)
+    } else {
+      console.log(error);
+    }
   }
 };
 
