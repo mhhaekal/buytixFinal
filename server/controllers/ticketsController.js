@@ -3,25 +3,13 @@ const { sequelize } = require('./../models')
 
 module.exports = {
     create: async (req, res, next) => {
-        // const t = await sequelize.transaction()
         try {
-            // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
             const data = JSON.parse(req.body.data)
             console.log(data);
             const data2 = req.files.images[0].path
             console.log(data2)
             const createTicket = await db.ticket.create({ ...data, image: data2 })
-            // console.log(createTicket.dataValues.id)
-            // const getData = await db.ticket.findOne({
-            //     where: {
-            //         id: createTicket.dataValues.id
-            //     }
-            // })
-            // const dataImage = req.files.images.map(value => {
 
-            // })
-            // await db.ticket.create()
-            // console.log(getData)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
@@ -31,11 +19,9 @@ module.exports = {
             next(error)
         }
     },
+
     getCategory: async (req, res, next) => {
-        // const t = await sequelize.transaction()
         try {
-            // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
-            // const data = req.body
             const category = await db.category.findAll()
             console.log(category)
             res.status(201).send({
@@ -47,11 +33,10 @@ module.exports = {
             next(error)
         }
     },
+
     getTicket: async (req, res, next) => {
         try {
-            // ambil id dari param
             const { id } = req.params
-            // ambil data findOne ticket berdasarkan category_id
             const ticketCategory = await db.ticket.findAll({
                 where: {
                     category_id: id
@@ -67,11 +52,10 @@ module.exports = {
             next(error)
         }
     },
+
     getCatName: async (req, res, next) => {
         try {
-            // ambil id dari param
             const { id } = req.params
-            // ambil data findOne ticket berdasarkan category_id
             const catName = await db.category.findAll({
                 where: {
                     id
@@ -87,11 +71,9 @@ module.exports = {
             next(error)
         }
     },
+
     getAllTicket: async (req, res, next) => {
         try {
-            // ambil id dari param
-            // const { id } = req.params
-            // ambil data findOne ticket berdasarkan category_id
             const allTicket = await db.ticket.findAll()
             console.log(allTicket)
             res.status(201).send({
@@ -103,11 +85,10 @@ module.exports = {
             next(error)
         }
     },
+
     getTicketDetail: async (req, res, next) => {
         try {
-            // ambil id dari param
             const { id } = req.params
-            // ambil data findOne ticket berdasarkan category_id
             const ticketDetail = await db.ticket.findOne({
                 where: {
                     id
@@ -123,11 +104,9 @@ module.exports = {
             next(error)
         }
     },
+
     getLocation: async (req, res, next) => {
         try {
-            // ambil id dari param
-            // const { id } = req.params
-            // ambil data findOne ticket berdasarkan category_id
             const location = await db.location.findAll()
             console.log(location)
             res.status(201).send({
@@ -139,19 +118,17 @@ module.exports = {
             next(error)
         }
     },
+
     referralCode: async (req, res, next) => {
         try {
-            // ambil id dari param
-            // const { id } = req.params
             const { code } = req.query
-            console.log(code)
-            // ambil data findOne ticket berdasarkan category_id
+            // console.log(code)
             const reff = await db.referral_code.findOne({
                 where: {
                     code: code
                 }
             })
-            console.log(reff)
+            // console.log(reff)
             if (reff === null) {
                 res.status(500).send({
                     isError: true,
@@ -169,13 +146,12 @@ module.exports = {
             next(error)
         }
     },
+
     buyTicket: async (req, res, next) => {
-        // const t = await sequelize.transaction()
         try {
-            // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
             const data = req.body
             const buyTicket = await db.transaction.create({ ...data })
-            console.log(data)
+            // console.log(data)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
@@ -185,10 +161,11 @@ module.exports = {
             next(error)
         }
     },
+
     getRefId: async (req, res, next) => {
         try {
             const data = req.body.code
-            console.log(data)
+            // console.log(data)
             const refId = await db.referral_code.findOne({
                 where: {
                     code: data
@@ -201,7 +178,7 @@ module.exports = {
                     data: null
                 })
             }
-            console.log(refId)
+            // console.log(refId)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
@@ -213,12 +190,10 @@ module.exports = {
     },
 
     createReferral: async (req, res, next) => {
-        // const t = await sequelize.transaction()
         try {
-            // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
             const data = req.body
             const createTicket = await db.referral_code.create({ ...data })
-            console.log(data)
+            // console.log(data)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
@@ -237,7 +212,7 @@ module.exports = {
                     category_id
                 }
             })
-            console.log(cat)
+            // console.log(cat)
             res.status(201).send({
                 isError: false,
                 message: 'Event Successfully Created',
