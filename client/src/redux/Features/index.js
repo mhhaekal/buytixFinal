@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Toaster, toast } from "react-hot-toast"
+import { Toaster, toast } from "react-hot-toast";
 // import { useDispatch } from "react-redux";
 
 const initialState = {
@@ -20,7 +20,6 @@ export const userSlice = createSlice({
 });
 
 export const onRegisterAsync = (email, username, pwd) => async (dispatch) => {
-  <Toaster />
   const data = {
     username: username,
     email: email,
@@ -28,52 +27,54 @@ export const onRegisterAsync = (email, username, pwd) => async (dispatch) => {
     point: 0,
   };
   try {
-    const checkEmail = await axios.get(`http://localhost:4123/user?email=${data.email}`);
+    if (!username || !email || !pwd) return toast.error(`Fields should not be empty`);
+    // const checkEmail = await axios.post(`http://localhost:4000/user?email=${data.email}`);
 
-    if (checkEmail.data.length) {
-      return toast.error("email already registerd, please use another email");
-    } else {
-      const res = await axios.post(`http://localhost:4123/user`, data);
-      console.log(res.data);
-      const getId = await axios.get(`http://localhost:4123/user?email=${data.email}`);
-      localStorage.setItem("idLogin", getId.data[0].id);
+    // if (checkEmail.data.length) {
+    //   return toast.error("email already registerd, please use another email");
+    // } else {
+    const res = await axios.post(`http://localhost:4000/users`, data);
+    // console.log(res.data);
+    // console.log(res.isError);
+    if (res.data.isError) return toast.error(` email already registerd, please use another email`);
+    // const getId = await axios.get(`http://localhost:4123/user?email=${data.email}`);
 
-      // dispatch(setFirstName(data.username));
+    toast.success(` check your email ${data.username}`);
+    // dispatch(setFirstName(data.username));
 
-      setTimeout(() => {
-        dispatch(setFirstName(data.username))
-      }, 2000)
+    // setTimeout(() => {
+    //   dispatch(setFirstName(data.username));
+    // }, 2000);
 
-      toast.success(` Welcome onboard! ${data.username}`);
-      //toast.success(`${data.username} Welcome onboard!`)
-    }
+    //toast.success(`${data.username} Welcome onboard!`)
+    // }
     // if(res.data.length) return alert('email telah digunakan')
   } catch (error) {
     console.log(error);
   }
 };
 
-export const onLoginAsync = (inputEmail, inputPassword) => async (dispatch) => {
-  <Toaster />
+export const onLoginAsync = (email, password) => async (dispatch) => {
   try {
+    console.log(">>>>");
+    if (!email || !password) return toast.error(`Fields should not be empty`);
+    console.log(email);
+    console.log(password);
     const res = await axios.get(
-      `http://localhost:4123/user?email=${inputEmail}&password=${inputPassword}`
+      `http://localhost:4000/users/login?email=${email}&password=${password}`
     );
-    if (!res.data.length) return toast.error("email or password is not found, please try again");
-
-    localStorage.setItem("idLogin", res.data[0].id);
-
-
+    if (res.data.isError) return toast.error(res.data.message);
+    console.log(res);
+    console.log(res.data.token);
+    // if (!res.data.length) return toast.error("email or password is not found, please try again");
+    localStorage.setItem("tokenLogin", res.data.token);
     setTimeout(() => {
-      dispatch(setFirstName(res.data[0].username))
-    }, 2000)
-
+      dispatch(setFirstName(res.data.data));
+    }, 2000);
     //dispatch(setFirstName(res.data[0].username));
-
     //alert(`Welcome Back ${res.data[0].username}!`);
-    toast.success(`Welcome Back ${res.data[0].username}!`)
-
-    if (res.data.length) return true;
+    toast.success(`Welcome Back ${res.data.data}!`);
+    // if (res.data.length) return true;
   } catch (error) {
     console.log(error);
   }
@@ -81,13 +82,26 @@ export const onLoginAsync = (inputEmail, inputPassword) => async (dispatch) => {
 
 export const onCheckisLogin = () => async (dispatch) => {
   try {
-    const id = localStorage.getItem("idLogin");
-    const res = await axios.get(`http://localhost:4123/user/${id}`);
+    const token = localStorage.getItem("tokenLogin");
+    console.log(token);
+    const res = await axios.get(`http://localhost:4000/users/verif/${token}`);
     console.log(res);
-    console.log(res.data.username);
-    dispatch(setFirstName(res.data.username));
+    // alert("test");
+    // console.log(res.data.username);
+    dispatch(setFirstName(res.data.data));
   } catch (error) {
-    console.log(error);
+    // if(res.response.data)
+    if (error.response.data.isError && localStorage.getItem("tokenLogin")) {
+      localStorage.removeItem("tokenLogin");
+      // alert("please re-login");
+      toast.error("your account is expired");
+      // console.log("ayam");
+      // setTimeout(() => {
+      //   toast.error("your account is expired");
+      // }, 3000);
+    } else {
+      console.log(error);
+    }
   }
 };
 

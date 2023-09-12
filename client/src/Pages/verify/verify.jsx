@@ -17,7 +17,7 @@ export default function Verify() {
       const verifData = await axios.get(`http://localhost:4000/users/verif/${token}`);
       console.log(verifData);
       // console.log(">>>");
-      if (verifData.data.isError) return alert("akun gagal di verify");
+      if (verifData.data.isError) return alert("Verify Failed!");
 
       setTimeout(() => {
         setData(true);
@@ -48,13 +48,13 @@ export default function Verify() {
     <div className="container mx-auto h-screen">
       <div className="flex justify-center items-center h-screen">
         <div className="flex flex-col items-center">
-          <div className="font-bold text-4xl">Akun Anda Telah disetujui</div>
+          <div className="font-bold text-4xl">Your Account Has Been Verified!</div>
           <div className="">
             <BiSolidBadgeCheck className="w-60 h-60 text-green-600" />
           </div>
           <div className="mt-5 h-16">
             <div className="btn text-2xl text-white bg-black h-16" onClick={() => onNavigate()}>
-              Menuju Landing Page
+              Go To Landing Page!
             </div>
           </div>
         </div>
