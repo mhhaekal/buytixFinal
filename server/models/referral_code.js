@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class referral_code extends Model {
     /**
@@ -10,22 +8,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ user }) {
-      this.belongsTo(user, { foreignKey: 'user_id' })
+      this.belongsTo(user, { foreignKey: "user_id" });
     }
   }
-  referral_code.init({
-    code: DataTypes.INTEGER,
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+  referral_code.init(
+    {
+      code: DataTypes.INTEGER,
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
     },
-    updatedAt: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      sequelize,
+      modelName: "referral_code",
     }
-  }, {
-    sequelize,
-    modelName: 'referral_code',
-  });
+  );
   return referral_code;
 };
