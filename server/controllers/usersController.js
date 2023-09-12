@@ -6,6 +6,7 @@ const handlebars = require("handlebars");
 const transporter = require("./../helper/transporter");
 const { log } = require("console");
 const { hash, match } = require('./../helper/hashing');
+const { Model } = require('sequelize');
 
 
 
@@ -90,7 +91,7 @@ module.exports = {
                 });
             const hashMatch = await match(password, getUser.dataValues.password)
             if (!hashMatch) throw { message: 'Wrong Password!' }
-            const token = await createJWT({ id: getUser.dataValues.id }, "10s");
+            const token = await createJWT({ id: getUser.dataValues.id }, "1h");
             res.status(200).send({
                 isError: false,
                 message: "login Success",
@@ -113,6 +114,23 @@ module.exports = {
                 message: 'Get Success',
                 data: allTicket
             })
+        } catch (error) {
+            next(error)
+        }
+    },
+    getTokenUser: async (req, res, next) => {
+        try {
+            const { id } = req.dataToken;
+            console.log(id);
+            const verif = await db.user.findOne({ where: { id } });
+            if (!verif) throw { message: "account is not exist" };
+            // console.log(verif);
+
+            res.status(200).send({
+                isError: false,
+                message: "account is found",
+                data: verif.dataValues,
+            });
         } catch (error) {
             next(error)
         }
@@ -195,5 +213,59 @@ module.exports = {
             next(error)
         }
     },
+
+    getTransaction: async (req, res, next) => {
+        try {
+            // ambil id dari param
+            const { id } = req.dataToken
+            // ambil data findOne ticket berdasarkan category_id
+            const trans = await db.transaction.findAll({
+                include: [{
+                    model: db.ticket,
+                    attributes: ['name']
+                }
+                ],
+                where: {
+                    user_id: id
+
+                }
+            })
+            console.log(trans)
+            res.status(201).send({
+                isError: false,
+                message: 'Get Success',
+                data: trans
+            })
+
+        } catch (error) {
+            next(error)
+        }
+    },
+    getSellerTicket: async (req, res) => {
+        try {
+            // ambil id dari param
+            const { id } = req.dataToken
+            // ambil data findOne ticket berdasarkan category_id
+            const ticket = await db.ticket.findAll({
+                include: [{
+                    model: db.location,
+                    attributes: ['location']
+                }
+                ],
+                where: {
+                    seller_id: id
+
+                }
+            })
+            console.log(ticket)
+            res.status(201).send({
+                isError: false,
+                message: 'Get Success',
+                data: ticket
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 

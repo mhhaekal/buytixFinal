@@ -63,13 +63,19 @@ function Nav() {
                   <p className="hover:bg-white">{email}</p>
                 </li>
                 <li className="hover:bg-white">
-                  <p className="hover:bg-white">point : {point}</p>
+                  <p className="hover:bg-white font-bold">point : {point}</p>
                 </li>
+                <Link to={'/dashboard/account'}>
+                  <li>
+                    <div className="bg-black text-white mt-2 font-semibold"> Dashboard</div>
+                  </li>
+                </Link>
                 <li>
-                  <Link className="bg-black text-white font-semibold" onClick={onSignOut}>
+                  <Link className="bg-black text-white font-semibold my-2" onClick={onSignOut}>
                     Sign Out
                   </Link>
                 </li>
+
               </ul>
             </div>
           ) : (

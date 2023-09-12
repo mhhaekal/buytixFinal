@@ -16,6 +16,9 @@ Router.patch('/buypoint', usersController.buyWithPoint);
 Router.post('/userid', usersController.getUserId);
 
 Router.get("/login", usersController.getOneUser);
+Router.get("/data/:token", verify, usersController.getTokenUser);
 Router.post("/", usersController.register);
 Router.get("/verif/:token", verify, usersController.verifyTokenUser);
+Router.get("/trans/:token", verify, usersController.getTransaction);
+Router.get("/myevent/:token", verify, usersController.getSellerTicket);
 module.exports = Router;

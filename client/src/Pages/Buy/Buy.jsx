@@ -71,6 +71,8 @@ export default function Buy() {
   const onBuyEventWithPoint = async () => {
     const getId = localStorage.getItem("idLogin");
     try {
+      const token = localStorage.getItem("tokenLogin");
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`)
       console.log("lalala")
       const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
       console.log(refid)
@@ -81,7 +83,7 @@ export default function Buy() {
         phone_number: inputPhoneNumber.current.value,
         referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
-        user_id: localStorage.getItem("idLogin")
+        user_id: test.data.data.id
       };
       if (
         inputs.first_name === "" ||
@@ -94,11 +96,10 @@ export default function Buy() {
         await axios.post(`http://localhost:4000/tickets/buy`, { ...inputs });
         // const res = await axios.get(`http://localhost:4123/user/${getId}`);
         // const getSellerName = await axios.post('http://localhost:4000/users/userid', { id: res.data.data.seller_id })
-        const res = await axios.post('http://localhost:4000/users/userid', { id: getId })
-        if (res.data.point === 0) {
+        if (test.data.data.point === 0) {
           return toast.error("You don't have enough points");
         } else {
-          await axios.patch(`http://localhost:4000/users/buypoint`, { id: getId });
+          await axios.patch(`http://localhost:4000/users/buypoint`, { id: test.data.data.id });
         }
         console.log(inputs);
         if (inputs) return navigate(`/buy/success/${id}`);
@@ -118,6 +119,8 @@ export default function Buy() {
     try {
       console.log("lalala")
       // console.log(Number(inputRefCode.current.value))
+      const token = localStorage.getItem("tokenLogin");
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`)
 
       const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
       console.log(refid)
@@ -129,7 +132,7 @@ export default function Buy() {
         phone_number: inputPhoneNumber.current.value,
         referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
-        user_id: localStorage.getItem("idLogin")
+        user_id: test.data.data.id
       };
       if (
         inputs.first_name === "" ||

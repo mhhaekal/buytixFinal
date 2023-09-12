@@ -18,6 +18,9 @@ import { onCheckisLogin } from "./redux/Features";
 import CreateSucess from "./Pages/Create/CreateSucess";
 import AllEvents from "./Pages/AllEvents/AllEvents";
 import CardPage from "./Pages/CardItem/CardPage";
+import Account from "./Pages/Dashboard/Account";
+import Transaction from "./Pages/Dashboard/Transaction";
+import MyEvent from "./Pages/Dashboard/MyEvent";
 import Test from "./Pages/test";
 import Verify from "./Pages/verify/verify";
 import { Toaster } from "react-hot-toast";
@@ -48,6 +51,9 @@ function App() {
         <Route path="/allevents" element={<AllEvents />} />
         <Route path="/carditem/:id" element={<CardPage />} />
         <Route path="/verify/:token" element={<Verify />} />
+        <Route path="/dashboard/account" element={<Account />} />
+        <Route path="/dashboard/transaction" element={<Transaction />} />
+        <Route path="/dashboard/myevent" element={<MyEvent />} />
         {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
     </div>

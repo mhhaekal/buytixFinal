@@ -4,6 +4,7 @@ const Router = express.Router()
 // Import All Controller
 const { ticketsController } = require('../controllers')
 const upload = require('./../middleware/upload')
+const { verify } = require("./../lib/jwt");
 
 Router.post('/', upload, ticketsController.create)
 Router.get('/', ticketsController.getCategory)

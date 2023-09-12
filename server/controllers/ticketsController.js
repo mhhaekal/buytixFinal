@@ -7,13 +7,14 @@ module.exports = {
         try {
             // const { name, price, details, date, time, seller_id, category_id, location_id, address } = req.body
             const data = JSON.parse(req.body.data)
+            console.log(data);
             const data2 = req.files.images[0].path
             console.log(data2)
             const createTicket = await db.ticket.create({ ...data, image: data2 })
             // console.log(createTicket.dataValues.id)
             // const getData = await db.ticket.findOne({
             //     where: {
-            //         id: id
+            //         id: createTicket.dataValues.id
             //     }
             // })
             // const dataImage = req.files.images.map(value => {
