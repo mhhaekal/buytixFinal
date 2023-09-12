@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast"
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Buy() {
   const [products, setProduct] = useState(null);
@@ -19,17 +19,20 @@ export default function Buy() {
   const [price, setPrice] = useState(null);
   const [isbutton, setIsButton] = useState(false);
   const [point, setPoint] = useState(null);
+  const [userCode, setUserCode] = useState(null);
   // const inputPriceTotal = useRef();
-
 
   const onFetchData = async () => {
     try {
+      const token = localStorage.getItem("tokenLogin");
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`);
+      setUserCode(test.data.data.id);
       const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       const res2 = await axios.get(`http://localhost:4000/users/user`);
       console.log(res);
       setProduct(res.data.data);
       setDataSeller(res2.data.data);
-    } catch (error) { }
+    } catch (error) {}
   };
   const getSellerName = dataSeller.filter((value) => value.id === products.seller_id);
   const onCheckRef = async () => {
@@ -39,12 +42,14 @@ export default function Buy() {
       if (!inputRefCode.current.value) return toast.error("Please type the referral code");
       //   const getReferal = awat axios.get()
       const getPrice = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
-      const checkRef = await axios.get(`http://localhost:4000/tickets/reff?code=${inputRefCode.current.value}`);
-      console.log(checkRef.data.data)
+      const checkRef = await axios.get(
+        `http://localhost:4000/tickets/reff?code=${inputRefCode.current.value}`
+      );
+      console.log(checkRef.data);
       //   console.log(checkRef.data[0].userId);
       if (checkRef.data.data) {
         const userReferalId = checkRef.data.data.user_id;
-        if (userReferalId === Number(getId)) {
+        if (userReferalId === userCode) {
           //   console.log("lu curang goblok");
           return toast.error("You cannot use your own refferal code, please try again");
         } else {
@@ -56,12 +61,10 @@ export default function Buy() {
           await axios.patch(`http://localhost:4000/users/userid/${userReferalId}`);
           setIsButton(true);
           return toast.success(`Congratulation! you get 10% discount`);
-
         }
       } else if (!checkRef.data.data) {
         // console.log(">>>>");
-        return toast.error("Refferal code not found, please try again")
-
+        return toast.error("Refferal code not found, please try again");
       }
     } catch (error) {
       console.log(error);
@@ -72,10 +75,12 @@ export default function Buy() {
     const getId = localStorage.getItem("idLogin");
     try {
       const token = localStorage.getItem("tokenLogin");
-      const test = await axios.get(`http://localhost:4000/users/data/${token}`)
-      console.log("lalala")
-      const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
-      console.log(refid)
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`);
+      console.log("lalala");
+      const refid = await axios.post("http://localhost:4000/tickets/refid", {
+        code: Number(inputRefCode.current.value),
+      });
+      console.log(refid);
       const inputs = {
         first_name: inputFirstName.current.value,
         last_name: inputLastName.current.value,
@@ -83,7 +88,7 @@ export default function Buy() {
         phone_number: inputPhoneNumber.current.value,
         referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
-        user_id: test.data.data.id
+        user_id: test.data.data.id,
       };
       if (
         inputs.first_name === "" ||
@@ -104,7 +109,7 @@ export default function Buy() {
         console.log(inputs);
         if (inputs) return navigate(`/buy/success/${id}`);
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const onPrice = async () => {
@@ -112,18 +117,20 @@ export default function Buy() {
       const checkRef = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       console.log(checkRef.data.data.price);
       setPrice(checkRef.data.data.price);
-    } catch (error) { }
+    } catch (error) {}
   };
 
   const onBuyEvent = async () => {
     try {
-      console.log("lalala")
+      console.log("lalala");
       // console.log(Number(inputRefCode.current.value))
       const token = localStorage.getItem("tokenLogin");
-      const test = await axios.get(`http://localhost:4000/users/data/${token}`)
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`);
 
-      const refid = await axios.post('http://localhost:4000/tickets/refid', { code: Number(inputRefCode.current.value) })
-      console.log(refid)
+      const refid = await axios.post("http://localhost:4000/tickets/refid", {
+        code: Number(inputRefCode.current.value),
+      });
+      console.log(refid);
 
       const inputs = {
         first_name: inputFirstName.current.value,
@@ -132,7 +139,7 @@ export default function Buy() {
         phone_number: inputPhoneNumber.current.value,
         referral_code_id: refid?.data?.data?.id || null,
         ticket_id: Number(id),
-        user_id: test.data.data.id
+        user_id: test.data.data.id,
       };
       if (
         inputs.first_name === "" ||

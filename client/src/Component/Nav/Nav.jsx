@@ -5,30 +5,33 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 // import { setFirstName } from "../../redux/Features";
 function Nav() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [email, setEmail] = useState(null);
   const [point, setPoint] = useState(null);
 
   const { firstName } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  // const [data, setData] = useState([]);
 
   const onSignOut = () => {
     localStorage.removeItem("tokenLogin");
     dispatch(setFirstName(""));
   };
-  // const fetchData = async () => {
-  //   const getId = localStorage.getItem("idLogin");
-  //   try {
-  //     const res = await axios.get(`http://localhost:4123/user/${getId}`);
-  //     console.log(res.data);
-  //     setEmail(res.data.email);
-  //     setPoint(res.data.point);
-  //   } catch (error) {}
-  // };
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("tokenLogin");
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`);
+      console.log(test.data.data);
+      setData(test.data.data);
+      // setUser(trans.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="navbar bg-black gap-2 px-40 h-[50px]">
@@ -63,9 +66,9 @@ function Nav() {
                   <p className="hover:bg-white">{email}</p>
                 </li>
                 <li className="hover:bg-white">
-                  <p className="hover:bg-white font-bold">point : {point}</p>
+                  <p className="hover:bg-white font-bold">point : {data.point}</p>
                 </li>
-                <Link to={'/dashboard/account'}>
+                <Link to={"/dashboard/account"}>
                   <li>
                     <div className="bg-black text-white mt-2 font-semibold"> Dashboard</div>
                   </li>
@@ -75,7 +78,6 @@ function Nav() {
                     Sign Out
                   </Link>
                 </li>
-
               </ul>
             </div>
           ) : (

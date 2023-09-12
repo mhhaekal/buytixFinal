@@ -12,17 +12,20 @@ function BuySuccess() {
   const [sellerName, setSellerName] = useState([]);
   const onFetchData = async () => {
     try {
-
+      const token = localStorage.getItem("tokenLogin");
+      const test = await axios.get(`http://localhost:4000/users/data/${token}`);
       const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       const res2 = await axios.get(`http://localhost:4000/users/user`);
       console.log(res);
       setProduct(res.data);
       setDataSeller(res2.data);
-      setSeller_id(res.data.data.seller_id)
+      setSeller_id(test.data.data.id);
       // console.log(res.data.data.seller_id)
-      const getSellerName = await axios.post('http://localhost:4000/users/userid', { id: res.data.data.seller_id })
+      const getSellerName = await axios.post("http://localhost:4000/users/userid", {
+        id: res.data.data.id,
+      });
       // console.log(getSellerName.data.data.username)
-      setSellerName(getSellerName.data.data.username)
+      setSellerName(getSellerName.data.data.username);
     } catch (error) {
       console.log(error);
     }
@@ -43,11 +46,10 @@ function BuySuccess() {
   //   }
   // }
   const onSaveReferalCode = async () => {
-    const getId = localStorage.getItem("idLogin");
+    // const getId = localStorage.getItem("idLogin");
     try {
-
       const res = await axios.post(`http://localhost:4000/tickets/createref`, {
-        user_id: Number(getId),
+        user_id: seller_id,
         code: referalCode,
       });
       console.log(res);
