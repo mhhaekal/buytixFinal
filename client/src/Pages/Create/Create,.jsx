@@ -58,7 +58,6 @@ export default function Create() {
     try {
       const token = localStorage.getItem("tokenLogin");
       const test = await axios.get(`http://localhost:4000/users/data/${token}`)
-      console.log(test.data.data.id)
       const inputs = {
         name: inputProductName.current.value,
         price: Number(inputPrice.current.value),
@@ -70,7 +69,6 @@ export default function Create() {
         location_id: Number(inputLocationId.current.value),
         address: inputLocation.current.value
       };
-      console.log(inputs);
       const fd = new FormData()
       fd.append('data', JSON.stringify(inputs))
       image.forEach(value => {
@@ -91,11 +89,7 @@ export default function Create() {
         toast.error("Please Fill All Data!");
       } else {
         await axios.post(`http://localhost:4000/tickets`, fd);
-        // alert('Data Created')
-        // console.log(inputs);
-        // if (inputs) return navigate("/create/success");
         toast.success('Create Event Success!')
-        // alert("Create Event Success!");
         setTimeout(() => {
           <Link to={'/'}></Link>
         }, 3000)
@@ -108,64 +102,6 @@ export default function Create() {
       console.log(error)
     }
   }
-
-  // const onCreateEvent = async () => {
-  //   try {
-  //     const getId = localStorage.getItem("idLogin");
-  //     const inputs = {
-  //       name: inputProductName.current.value,
-  //       price: Number(inputPrice.current.value),
-  //       details: inputDetails.current.value,
-  //       date: inputDate.current.value,
-  //       time: inputTime.current.value,
-  //       seller_id: Number(getId),
-  //       category_id: Number(inputCategory.current.value),
-  //       location_id: Number(inputLocationId.current.value),
-  //       address: inputLocation.current.value,
-  //       // code: inputCode.current.value,
-  //       // discount: Number(inputDiscount.current.value),
-  //     };
-  //     // const inputImages = {
-  //     //   image: inputImage.current.value,
-  //     // }
-  //     setData(inputs)
-  //     // setImage(inputImages)
-  //     const fd = new FormData()
-  //     fd.append('data', JSON.stringify(data))
-  //     image.forEach(value => {
-  //       fd.append('images', value)
-  //     })
-  //     // await axios.post(`http://localhost:4123/products`, { ...inputs });
-  //     // console.log(inputs)
-  //     if (
-  //       inputs.name == "" ||
-  //       inputs.image == "" ||
-  //       inputs.price == "" ||
-  //       inputs.details == "" ||
-  //       inputs.date == "" ||
-  //       inputs.time == "" ||
-  //       inputs.address == "" ||
-  //       inputs.category_id == "" ||
-  //       inputs.location_id == ""
-  //     ) {
-  //       alert("Data Belum Lengkap Guys");
-  //     } else {
-
-  //       await axios.post(`http://localhost:4000/tickets`, { ...inputs });
-  //       console.log(inputs);
-  //       if (inputs) return navigate("/create/success");
-  //     }
-
-  //     // toast.success('Create Event Success!')
-  //     // alert("Create Event Success!");
-  //     // setTimeout(() => {
-  //     //     <Link to={'/'}></Link>
-  //     // }, 3000)
-  //     // if (inputs) return navigate('/create/success')
-  //   } catch (error) {
-  //     alert(error.message)
-  //   }
-  // };
 
 
   return (

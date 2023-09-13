@@ -49,28 +49,6 @@ function AllEvents() {
   });
   productsSeller.forEach((value) => console.log(value.sellerName));
 
-  //   if (forSearch) {
-  //     products = products.find((value) => value.name.toLowerCase().includes(forSearch.toLowerCase()));
-  //   }
-  // const handleCheckbox = (_typeId) => {
-  //   const tempSelectedType = [...selectedType];
-  //   // console.log(tempSelectedType)
-  //   const tempProducts = [...backupProducts];
-
-  //   if (tempSelectedType.includes(_typeId)) {
-  //     tempSelectedType.splice(tempSelectedType.indexOf(_typeId), 1);
-  //   } else {
-  //     tempSelectedType.push(_typeId);
-  //   }
-
-  //   const filtered = tempProducts.filter((value) => {
-  //     // console.log(value);
-  //     return tempSelectedType.includes(value.category);
-  //   });
-
-  //   setselectedType(tempSelectedType);
-  //   filtered.length ? setProducts(filtered) : setProducts(tempProducts);
-  // };
   const handleChange = async (category_id) => {
     // 1
     console.log(category_id);
@@ -136,7 +114,7 @@ function AllEvents() {
             <div className="mt-20">
               <div className="mx-40 w-[82%] flex items-center justify-between">
                 <div className=" font-bold text-5xl pb-4">ALL EVENTS</div>
-                <div className="font-bold">
+                {/* <div className="font-bold">
                   <input
                     type="text"
                     placeholder="Search"
@@ -144,7 +122,7 @@ function AllEvents() {
                     value={forSearch}
                     onChange={(e) => setForSearch(e.target.value)}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
 

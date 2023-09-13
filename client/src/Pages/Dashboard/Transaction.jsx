@@ -79,7 +79,7 @@ const Transaction = () => {
                             <td>{value.last_name}</td>
                             <td>{value.email}</td>
                             <td>{value.phone_number}</td>
-                            <td>{value.ticket.name}</td>
+                            <td>{value.ticket?.name}</td>
                           </tr>
                         </tbody>
                       );

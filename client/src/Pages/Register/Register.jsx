@@ -14,6 +14,7 @@ function Register() {
   const navigate = useNavigate();
 
   const onRegister = (inputNewEmail, inputUserNewName, inputNewPassword) => {
+    if (inputNewPassword.length < 6) return toast.error('Password should be more than 5 characters')
     dispatch(onRegisterAsync(inputNewEmail, inputUserNewName, inputNewPassword));
     // navigate("/");
   };

@@ -28,7 +28,7 @@ const MyEvent = () => {
     <div>
       <Nav />
 
-      <div className="flex h-[full]">
+      <div className="flex h-[800px]">
         <div className="w-[20%] bg-zinc-900 border-r-black">
           <div className=" flex flex-col text-lg">
             <Link to={"/dashboard/account"}>
@@ -51,7 +51,7 @@ const MyEvent = () => {
 
             <div className="h-[5px] w-[full] bg-black mt-3"></div>
 
-            <div className="overflow-x-auto shadow-xl mb-20">
+            <div className="overflow-x-auto shadow-xl mb-20 ">
               <table className="table">
                 {/* head */}
                 <thead>
@@ -63,7 +63,7 @@ const MyEvent = () => {
                     <th>Time</th>
                     <th>Location</th>
                     <th>Address</th>
-                    <th></th>
+                    {/* <th></th> */}
                   </tr>
                 </thead>
 
@@ -75,17 +75,17 @@ const MyEvent = () => {
                       <tbody>
                         <tr>
                           <th>{index + 1}</th>
-                          <th>{value.name}</th>
-                          <th>Rp. {value.price}</th>
-                          <th>{value.date}</th>
-                          <th>{value.time}</th>
-                          <th>{value.location.location}</th>
-                          <th>{value.address}</th>
-                          <th>
+                          <td>{value.name}</td>
+                          <td>Rp. {value.price}</td>
+                          <td>{value.date}</td>
+                          <td>{value.time}</td>
+                          <td>{value.location.location}</td>
+                          <td>{value.address}</td>
+                          {/* <th>
                             <button className="btn btn-ghost btn-xs bg-black text-white hover:text-black">
                               DELETE
                             </button>
-                          </th>
+                          </th> */}
                         </tr>
                       </tbody>
                     );

@@ -22,6 +22,7 @@ export default function CardPage() {
             // })
 
             // setSelected({ ...selected, stockSize: totalStock })
+            console.log(res);
             setProduct(res.data.data);
             setDataSeller(res2.data.data);
 

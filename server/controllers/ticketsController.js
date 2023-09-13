@@ -92,7 +92,12 @@ module.exports = {
             const ticketDetail = await db.ticket.findOne({
                 where: {
                     id
+                },
+                include: [{
+                    model: db.user,
+                    attributes: ['username']
                 }
+                ]
             })
             console.log(ticketDetail)
             res.status(201).send({

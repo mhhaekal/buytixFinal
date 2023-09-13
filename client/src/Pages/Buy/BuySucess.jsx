@@ -8,7 +8,7 @@ function BuySuccess() {
   const { id } = useParams();
   const [products, setProduct] = useState(null);
   const [dataSeller, setDataSeller] = useState([]);
-  const [seller_id, setSeller_id] = useState([]);
+  const [seller_id, setSeller_id] = useState(null);
   const [sellerName, setSellerName] = useState([]);
   const onFetchData = async () => {
     try {
@@ -16,17 +16,19 @@ function BuySuccess() {
       const test = await axios.get(`http://localhost:4000/users/data/${token}`);
       const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       const res2 = await axios.get(`http://localhost:4000/users/user`);
-      // console.log(res);
+      console.log(res);
       setProduct(res.data);
       setDataSeller(res2.data);
+      // console.log(test.data.data.id);
       setSeller_id(test.data.data.id);
+      console.log(test.data.data.id);
       // console.log(test);
       // console.log(res.data.data.seller_id)
       const getSellerName = await axios.post("http://localhost:4000/users/userid", {
         id: res.data.data.id,
       });
       // console.log(getSellerName.data.data.username)
-      setSellerName(getSellerName.data.data.username);
+      // setSellerName(getSellerName.data.data.username);
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +79,7 @@ function BuySuccess() {
                   <div className="text-gray-500">{products.data.date} |</div>
                   <div className="text-gray-500">{products.data.time} |</div>
                   <div className="text-gray-500">{products.data.address} |</div>
-                  <div className="text-purple-800">by {sellerName}</div>
+                  <div className="text-purple-800">by {products.data.user.username}</div>
                 </div>
 
                 <div className=" mb-10 bg-gradient-to-r from-black to-purple-800 h-[8px]"></div>

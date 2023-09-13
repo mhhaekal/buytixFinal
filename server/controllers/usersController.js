@@ -24,13 +24,13 @@ module.exports = {
             //   console.log(username);
             //   console.log(email);
             //   console.log(password);
-            //   const checkEmail = await db.user.findOne({ where: { email } });
-            //   console.log(checkEmail);
-            //   if (checkEmail)
-            //     return res.status(200).send({
-            //       isError: true,
-            //       message: "Email Already Exist",
-            //     });
+            const checkEmail = await db.user.findOne({ where: { email } });
+            console.log(checkEmail);
+            if (checkEmail)
+                return res.status(200).send({
+                    isError: true,
+                    message: "Email Already Exist",
+                });
             const hashPassword = await hash(password)
             const createUser = await db.user.create({ username, email, password: hashPassword, point });
 
@@ -220,15 +220,15 @@ module.exports = {
             const { id } = req.dataToken
             // ambil data findOne ticket berdasarkan category_id
             const trans = await db.transaction.findAll({
+                where: {
+                    user_id: id
+
+                },
                 include: [{
                     model: db.ticket,
                     attributes: ['name']
                 }
-                ],
-                where: {
-                    user_id: id
-
-                }
+                ]
             })
             console.log(trans)
             res.status(201).send({
