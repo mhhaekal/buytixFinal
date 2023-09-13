@@ -21,7 +21,7 @@ function Card(props) {
                 {props.item.date} | {props.item.time}
               </p>
               <p className="text-sm pt-2  h-[70px]">{props.item.address} </p>
-              <p className="text-l pt-2 font-bold text-purple-800">by {props.item.sellerName}</p>
+              <p className="text-l pt-2 font-bold text-purple-800">by {props.item.user.username}</p>
               <div className=" pt-5 card-actions justify-start">
                 <button className="btn btn-outline btn-primary btn-block text-white ">
                   See More

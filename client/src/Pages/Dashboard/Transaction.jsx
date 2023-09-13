@@ -30,7 +30,7 @@ const Transaction = () => {
     <div>
       <Nav />
 
-      <div className="flex h-[500px]">
+      <div className="flex h-[800px]">
         <div className="w-[20%] bg-zinc-900 border-r-black">
           <div className=" flex flex-col text-lg">
             <Link to={"/dashboard/account"}>

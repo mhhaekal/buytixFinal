@@ -29,15 +29,15 @@ export default function Buy() {
       setUserCode(test.data.data.id);
       const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       const res2 = await axios.get(`http://localhost:4000/users/user`);
-      console.log(res);
+      console.log(test);
       setProduct(res.data.data);
       setDataSeller(res2.data.data);
-    } catch (error) {}
+    } catch (error) { }
   };
   const getSellerName = dataSeller.filter((value) => value.id === products.seller_id);
   const onCheckRef = async () => {
-    const getId = localStorage.getItem("idLogin");
-    console.log(getId);
+    // const getId = localStorage.getItem("idLogin");
+    // console.log(getId);
     try {
       if (!inputRefCode.current.value) return toast.error("Please type the referral code");
       //   const getReferal = awat axios.get()
@@ -45,9 +45,13 @@ export default function Buy() {
       const checkRef = await axios.get(
         `http://localhost:4000/tickets/reff?code=${inputRefCode.current.value}`
       );
-      console.log(checkRef.data);
+      console.log(checkRef.data)
       //   console.log(checkRef.data[0].userId);
-      if (checkRef.data.data) {
+      if (!checkRef.data) {
+        return toast.error("Refferal code not found, please try again");
+      }
+      else if (checkRef.data.data) {
+        console.log(">>>>");
         const userReferalId = checkRef.data.data.user_id;
         if (userReferalId === userCode) {
           //   console.log("lu curang goblok");
@@ -62,12 +66,10 @@ export default function Buy() {
           setIsButton(true);
           return toast.success(`Congratulation! you get 10% discount`);
         }
-      } else if (!checkRef.data.data) {
-        // console.log(">>>>");
-        return toast.error("Refferal code not found, please try again");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      toast.error(error.response.data.message)
     }
   };
 
@@ -109,7 +111,7 @@ export default function Buy() {
         console.log(inputs);
         if (inputs) return navigate(`/buy/success/${id}`);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const onPrice = async () => {
@@ -117,7 +119,7 @@ export default function Buy() {
       const checkRef = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       console.log(checkRef.data.data.price);
       setPrice(checkRef.data.data.price);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const onBuyEvent = async () => {

@@ -104,6 +104,26 @@ module.exports = {
             next(error)
         }
     },
+    getAllTicketDetail: async (req, res, next) => {
+        try {
+            // const { id } = req.params
+            const ticketDetail = await db.ticket.findAll({
+                include: [{
+                    model: db.user,
+                    attributes: ['username']
+                }
+                ]
+            })
+            console.log(ticketDetail)
+            res.status(201).send({
+                isError: false,
+                message: 'Get Success',
+                data: ticketDetail
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
 
     getLocation: async (req, res, next) => {
         try {
@@ -132,10 +152,14 @@ module.exports = {
             if (reff === null) {
                 res.status(500).send({
                     isError: true,
-                    message: 'Get Fail',
+                    message: 'Referral Code Not Found',
                     data: reff
                 })
-            } else {
+            }
+            // else if () {
+
+            // }
+            else {
                 res.status(201).send({
                     isError: false,
                     message: 'Get Success',

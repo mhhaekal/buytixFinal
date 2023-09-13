@@ -16,10 +16,11 @@ function BuySuccess() {
       const test = await axios.get(`http://localhost:4000/users/data/${token}`);
       const res = await axios.get(`http://localhost:4000/tickets/detail/${id}`);
       const res2 = await axios.get(`http://localhost:4000/users/user`);
-      console.log(res);
+      // console.log(res);
       setProduct(res.data);
       setDataSeller(res2.data);
       setSeller_id(test.data.data.id);
+      // console.log(test);
       // console.log(res.data.data.seller_id)
       const getSellerName = await axios.post("http://localhost:4000/users/userid", {
         id: res.data.data.id,

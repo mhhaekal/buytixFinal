@@ -28,7 +28,7 @@ const MyEvent = () => {
     <div>
       <Nav />
 
-      <div className="flex h-[500px]">
+      <div className="flex h-[full]">
         <div className="w-[20%] bg-zinc-900 border-r-black">
           <div className=" flex flex-col text-lg">
             <Link to={"/dashboard/account"}>
@@ -51,7 +51,7 @@ const MyEvent = () => {
 
             <div className="h-[5px] w-[full] bg-black mt-3"></div>
 
-            <div className="overflow-x-auto shadow-xl">
+            <div className="overflow-x-auto shadow-xl mb-20">
               <table className="table">
                 {/* head */}
                 <thead>

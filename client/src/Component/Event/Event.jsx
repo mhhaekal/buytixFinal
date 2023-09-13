@@ -10,25 +10,27 @@ function Event() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/tickets/all`);
-            const res2 = await axios.get(`http://localhost:4000/users/user`);
+            const response = await axios.get(`http://localhost:4000/tickets/alldetail`);
+            // const response = await axios.get(`http://localhost:4000/tickets/all`);
+            // const res2 = await axios.get(`http://localhost:4000/users/user`);
             // console.log(response.data)
             SetProducts(response.data.data.slice(0, 8));
-            setDataSeller(res2.data.data);
-            // console.log(products)
+            // setDataSeller(res2.data.data);
+            // console.log(res2)
             // console.log(dataSeller)
         } catch (error) {
             console.log(error);
         }
     };
-    const productsSeller = products.map((value) => {
-        const seller = dataSeller.find((item) => item.id === value.id);
-        return {
-            ...value,
-            sellerName: seller ? seller.username : "unknown",
-        };
-    });
-    console.log(productsSeller);
+    // const productsSeller = products.map((value) => {
+    //     const seller = dataSeller.find((item) => item.id === value.id);
+    //     return {
+    //         // console.log(seller)
+    //         ...value,
+    //         sellerName: seller ? seller.username : "unknown",
+    //     };
+    // });
+    console.log(products)
     useEffect(() => {
         // console.log(getSellerName)
         fetchData();
@@ -52,7 +54,7 @@ function Event() {
             <div className=" mx-40 mb-10 bg-gradient-to-r from-black to-purple-800 h-[8px]"></div>
 
             <div className="flex flex-wrap justify-between mx-40 gap-10">
-                {productsSeller.map((value, index) => {
+                {products.map((value, index) => {
                     return (
                         <div key={index}>
                             <Link to={`./carditem/${value.id}`}>
